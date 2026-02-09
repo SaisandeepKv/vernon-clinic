@@ -1,0 +1,144 @@
+/* Tiptap WYSIWYG Editor Styles */
+
+.tiptap-editor {
+  @apply rounded-lg border border-vernon-200 overflow-hidden bg-white;
+}
+
+.tiptap-toolbar {
+  @apply flex flex-wrap items-center gap-0.5 border-b border-vernon-100 bg-vernon-50 px-2 py-1.5;
+}
+
+.tiptap-toolbar button {
+  @apply rounded px-2 py-1.5 text-xs font-medium text-vernon-600 hover:bg-vernon-200 hover:text-vernon-900 transition-colors;
+}
+
+.tiptap-toolbar button.is-active {
+  @apply bg-clinical-100 text-clinical-700;
+}
+
+.tiptap-toolbar button:disabled {
+  @apply opacity-40 cursor-not-allowed;
+}
+
+.tiptap-toolbar .toolbar-divider {
+  @apply w-px h-5 bg-vernon-200 mx-1;
+}
+
+/* ProseMirror editor area */
+.ProseMirror {
+  @apply px-4 py-3 min-h-[20rem] text-sm text-vernon-900 outline-none;
+}
+
+.ProseMirror:focus {
+  @apply ring-0;
+}
+
+/* Placeholder */
+.ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-vernon-400 float-left h-0 pointer-events-none;
+  content: attr(data-placeholder);
+}
+
+/* Headings */
+.ProseMirror h2 {
+  @apply text-xl font-semibold text-vernon-900 mt-6 mb-3;
+}
+
+.ProseMirror h3 {
+  @apply text-lg font-medium text-vernon-900 mt-4 mb-2;
+}
+
+/* Paragraphs */
+.ProseMirror p {
+  @apply mb-3 leading-relaxed;
+}
+
+/* Lists */
+.ProseMirror ul {
+  @apply list-disc pl-6 mb-3 space-y-1;
+}
+
+.ProseMirror ol {
+  @apply list-decimal pl-6 mb-3 space-y-1;
+}
+
+.ProseMirror li {
+  @apply text-vernon-700;
+}
+
+/* Links */
+.ProseMirror a {
+  @apply text-clinical-600 underline decoration-clinical-300 hover:decoration-clinical-600 cursor-pointer;
+}
+
+/* Bold & Italic */
+.ProseMirror strong {
+  @apply font-semibold;
+}
+
+.ProseMirror em {
+  @apply italic;
+}
+
+/* Blockquote */
+.ProseMirror blockquote {
+  @apply border-l-4 border-clinical-300 pl-4 py-1 my-4 text-vernon-600 italic;
+}
+
+/* Code */
+.ProseMirror code {
+  @apply bg-vernon-100 text-vernon-800 rounded px-1.5 py-0.5 font-mono text-xs;
+}
+
+/* Code blocks */
+.ProseMirror pre {
+  @apply bg-vernon-950 text-vernon-200 rounded-lg p-4 my-4 overflow-x-auto font-mono text-xs leading-relaxed;
+}
+
+.ProseMirror pre code {
+  @apply bg-transparent text-inherit rounded-none p-0;
+}
+
+/* Images */
+.ProseMirror img {
+  @apply rounded-lg max-w-full h-auto my-4;
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  @apply ring-2 ring-clinical-500 ring-offset-2;
+}
+
+/* Horizontal rule */
+.ProseMirror hr {
+  @apply border-t border-vernon-200 my-6;
+}
+
+/* Lowlight syntax highlighting */
+.ProseMirror pre .hljs-comment,
+.ProseMirror pre .hljs-quote {
+  color: #6a737d;
+}
+
+.ProseMirror pre .hljs-keyword,
+.ProseMirror pre .hljs-selector-tag {
+  color: #d73a49;
+}
+
+.ProseMirror pre .hljs-string,
+.ProseMirror pre .hljs-addition {
+  color: #22863a;
+}
+
+.ProseMirror pre .hljs-number,
+.ProseMirror pre .hljs-literal {
+  color: #005cc5;
+}
+
+.ProseMirror pre .hljs-title,
+.ProseMirror pre .hljs-section {
+  color: #6f42c1;
+}
+
+.ProseMirror pre .hljs-built_in {
+  color: #e36209;
+}
