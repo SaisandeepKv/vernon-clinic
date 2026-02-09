@@ -237,6 +237,16 @@ function NavDropdown({ item }: { item: NavItem }) {
 function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null)
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   return (
@@ -409,6 +419,7 @@ export function Header() {
   }, [])
 
   return (
+    <>
     <header className={`sticky top-0 z-40 transition-all duration-500 ${scrolled ? 'border-b border-vernon-100/60 bg-white/90 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_20px_rgba(0,0,0,0.03)] backdrop-blur-2xl' : 'border-b border-transparent bg-white/70 backdrop-blur-xl'}`}>
       {/* Top bar */}
       <div className="hidden border-b border-white/5 bg-vernon-950 sm:block">
@@ -494,7 +505,8 @@ export function Header() {
         </div>
       </div>
 
-      <MobileNav isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
     </header>
+    <MobileNav isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
   )
 }

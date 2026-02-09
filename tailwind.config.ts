@@ -91,8 +91,8 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         slideInRight: {
-          '0%': { opacity: '0', transform: 'translateX(10px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
         },
         revealUp: {
           '0%': { opacity: '0', transform: 'translateY(24px)' },
