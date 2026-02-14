@@ -9,25 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Muted medical palette - calm, authoritative, clinical
+        // Warm neutral palette — inspired by Cursor/Linear warm tones
         vernon: {
-          50: '#f8fafb',
-          100: '#f0f4f7',
-          200: '#dce5ec',
-          300: '#b8c9d6',
-          400: '#8ea8bc',
-          500: '#6b8aa3',
-          600: '#547088',
-          700: '#455b6f',
-          800: '#3b4d5d',
-          900: '#34424f',
-          950: '#232d36',
+          50: '#f9f8f6',
+          100: '#f3f1ed',
+          200: '#e4e0d9',
+          300: '#cdc6bb',
+          400: '#ada496',
+          500: '#938878',
+          600: '#7a6f60',
+          700: '#635a4e',
+          800: '#524b42',
+          900: '#453f38',
+          950: '#262320',
         },
-        // Warm neutral for text
-        slate: {
-          925: '#0f1720',
-        },
-        // Accent - subtle teal for medical trust
+        // Accent — clinical teal, used sparingly for trust
         clinical: {
           50: '#f0fdfb',
           100: '#ccfbf1',
@@ -40,16 +36,16 @@ const config: Config = {
           800: '#115e59',
           900: '#134e4a',
         },
-        // Deep dark backgrounds
+        // Deep dark backgrounds — warm charcoal
         night: {
-          900: '#0f1419',
-          950: '#0a0e12',
+          900: '#171412',
+          950: '#0e0c0a',
         },
-        // Warm ivory for backgrounds
+        // Warm cream backgrounds — the canvas
         ivory: {
-          50: '#fefdfb',
-          100: '#fdfaf5',
-          200: '#faf5eb',
+          50: '#faf8f5',
+          100: '#f5f1eb',
+          200: '#ede8df',
         },
       },
       fontFamily: {
@@ -59,6 +55,10 @@ const config: Config = {
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
+        // Larger display sizes for hero headlines
+        '7xl': ['4.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
+        '8xl': ['6rem', { lineHeight: '1.02', letterSpacing: '-0.035em' }],
+        '9xl': ['7rem', { lineHeight: '1', letterSpacing: '-0.04em' }],
       },
       spacing: {
         '18': '4.5rem',
@@ -67,6 +67,9 @@ const config: Config = {
       },
       maxWidth: {
         '8xl': '88rem',
+      },
+      borderRadius: {
+        '4xl': '2rem',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
