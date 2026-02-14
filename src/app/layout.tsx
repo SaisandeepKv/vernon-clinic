@@ -3,10 +3,16 @@ import { Inter, Newsreader, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { ClinicUpdates } from '@/components/sections/ClinicUpdates'
 import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat'
+import { ExitIntentPopup } from '@/components/ui/ExitIntentPopup'
+import { CallbackWidget } from '@/components/ui/CallbackWidget'
+import { TreatmentFinderQuiz } from '@/components/ui/TreatmentFinderQuiz'
 import { StickyMobileCTA } from '@/components/ui/StickyMobileCTA'
 import { SchemaOrg } from '@/components/schema/SchemaOrg'
+import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
+import { PageTransition } from '@/components/ui/PageTransition'
 import { PostHogProvider } from '@/components/providers/PostHogProvider'
 import { generateMedicalOrganizationSchema, generateWebSiteSchema } from '@/lib/schema'
 import { locations } from '@/data/locations'
@@ -113,10 +119,17 @@ export default function RootLayout({
       <body className="min-h-screen font-sans">
         <PostHogProvider>
           <SmoothScroll />
+          <ScrollProgressBar />
+          <ClinicUpdates />
           <Header />
-          <main>{children}</main>
+          <main>
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
           <WhatsAppFloat />
+          <ExitIntentPopup />
+          <CallbackWidget />
+          <TreatmentFinderQuiz />
           <StickyMobileCTA />
         </PostHogProvider>
       </body>

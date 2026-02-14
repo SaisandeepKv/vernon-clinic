@@ -58,9 +58,9 @@ export function StatsBar() {
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-night-950">
+    <section ref={ref} className="relative overflow-hidden bg-vernon-950">
       {/* Background gradient mesh */}
-      <div className="absolute inset-0 bg-gradient-to-r from-night-950 via-vernon-900 to-night-950" />
+      <div className="absolute inset-0 bg-gradient-to-r from-vernon-950 via-vernon-900 to-vernon-950" />
       <div className="absolute left-1/4 top-0 h-px w-1/2 bg-gradient-to-r from-transparent via-clinical-500/20 to-transparent" />
 
       {/* Subtle animated glow */}
@@ -72,7 +72,7 @@ export function StatsBar() {
       <div className="noise-overlay absolute inset-0 opacity-50" />
 
       <div className="section-max-width section-padding relative">
-        <div className="grid grid-cols-2 gap-6 py-20 lg:grid-cols-4 lg:gap-0 lg:py-24">
+        <div className="grid grid-cols-2 gap-6 py-16 lg:grid-cols-4 lg:gap-0">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -98,7 +98,7 @@ export function StatsBar() {
               <p className="mt-2 text-sm font-medium text-vernon-300">
                 {stat.label}
               </p>
-              <p className="text-xs text-vernon-400">
+              <p className="text-xs text-vernon-500">
                 {stat.sub}
               </p>
             </motion.div>

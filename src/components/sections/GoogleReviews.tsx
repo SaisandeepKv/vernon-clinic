@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 
 interface Review {
   author_name: string
@@ -119,8 +119,15 @@ function StarRating({ rating }: { rating: number }) {
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="flex w-[340px] flex-shrink-0 flex-col rounded-2xl border border-vernon-100 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 card-elevated sm:w-[380px]">
-      <StarRating rating={review.rating} />
+    <div className="flex w-[340px] flex-shrink-0 flex-col rounded-2xl border border-vernon-100/80 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 sm:w-[380px]">
+      <div className="flex items-center justify-between">
+        <StarRating rating={review.rating} />
+        {review.treatment_category && (
+          <span className="rounded-full bg-clinical-50 px-2 py-0.5 text-2xs font-medium text-clinical-700">
+            {review.treatment_category}
+          </span>
+        )}
+      </div>
       <p className="mt-4 flex-1 text-sm leading-relaxed text-vernon-600 line-clamp-4">
         &ldquo;{review.text}&rdquo;
       </p>
@@ -146,11 +153,19 @@ function ReviewCard({ review }: { review: Review }) {
   )
 }
 
+const reviewCategories = ['All', 'Hair Restoration', 'Laser', 'Aesthetics', 'Pigmentation', 'Acne Scars', 'Clinical Dermatology', 'Pediatric', 'General']
+
 export function GoogleReviews() {
   const [reviews, setReviews] = useState<Review[]>(staticReviews)
+  const [activeCategory, setActiveCategory] = useState('All')
   const headingRef = useRef<HTMLDivElement>(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(headingRef, { once: true, margin: '-50px' })
   const [isPaused, setIsPaused] = useState(false)
+
+  const filteredReviews = activeCategory === 'All'
+    ? reviews
+    : reviews.filter((r) => r.treatment_category === activeCategory)
 
   useEffect(() => {
     async function fetchReviews() {
@@ -170,10 +185,10 @@ export function GoogleReviews() {
   }, [])
 
   return (
-    <section className="overflow-hidden py-24 lg:py-32">
+    <section className="py-20 lg:py-28 overflow-hidden">
       <div className="section-max-width section-padding">
         {/* Header with stats */}
-        <div ref={headingRef} className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+        <div ref={headingRef} className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
@@ -232,11 +247,33 @@ export function GoogleReviews() {
             </div>
           </motion.div>
         </div>
+        {/* Category filter pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-8 flex flex-wrap gap-2"
+        >
+          {reviewCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+                activeCategory === cat
+                  ? 'bg-vernon-900 text-white shadow-sm'
+                  : 'bg-vernon-50 text-vernon-500 hover:bg-vernon-100 hover:text-vernon-700'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
       </div>
 
       {/* Horizontal auto-scroll carousel */}
       <div
-        className="relative mt-14"
+        ref={carouselRef}
+        className="relative mt-12"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
@@ -254,7 +291,7 @@ export function GoogleReviews() {
           }}
         >
           {/* Double the reviews for seamless loop */}
-          {[...reviews, ...reviews].map((review, index) => (
+          {[...filteredReviews, ...filteredReviews].map((review, index) => (
             <ReviewCard key={`${review.author_name}-${index}`} review={review} />
           ))}
         </div>
@@ -265,7 +302,7 @@ export function GoogleReviews() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-10 flex items-center justify-center"
+          className="mt-8 flex items-center justify-center gap-4"
         >
           <a
             href="https://www.google.com/maps/place/Vernon+Skin+and+Hair+Clinic"

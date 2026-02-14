@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --background: 250 248 245;
-    --foreground: 38 35 32;
-    --muted: 243 241 237;
-    --muted-foreground: 147 136 120;
-    --border: 228 224 217;
-    --ring: 69 63 56;
+    --background: 254 252 249;
+    --foreground: 15 23 32;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+    --border: 226 232 240;
+    --ring: 84 112 136;
     --accent: 13 148 136;
   }
 
@@ -29,31 +29,27 @@
 
 @layer components {
   .section-padding {
-    @apply px-5 sm:px-8 lg:px-10;
+    @apply px-4 sm:px-6 lg:px-8;
   }
 
   .section-max-width {
     @apply mx-auto max-w-7xl;
   }
 
-  /* Typography — "Confident Restraint" scale */
   .heading-1 {
     @apply font-display text-4xl font-light text-vernon-950 sm:text-5xl lg:text-6xl;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    text-wrap: balance;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
   }
 
   .heading-2 {
-    @apply font-display text-3xl font-light text-vernon-950 sm:text-4xl lg:text-5xl;
-    letter-spacing: -0.025em;
-    line-height: 1.08;
-    text-wrap: balance;
+    @apply font-display text-3xl font-light text-vernon-950 sm:text-4xl;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
   }
 
   .heading-3 {
     @apply font-display text-2xl font-light tracking-tight text-vernon-900 sm:text-3xl;
-    text-wrap: balance;
   }
 
   .heading-4 {
@@ -61,29 +57,28 @@
   }
 
   .body-large {
-    @apply text-lg text-vernon-600 sm:text-xl;
-    line-height: 1.7;
+    @apply text-lg text-vernon-700 sm:text-xl;
+    line-height: 1.75;
   }
 
   .body-base {
-    @apply text-base leading-relaxed text-vernon-500;
+    @apply text-base leading-relaxed text-vernon-600;
   }
 
   .body-small {
-    @apply text-sm leading-relaxed text-vernon-400;
+    @apply text-sm leading-relaxed text-vernon-500;
   }
 
   .label {
     @apply text-xs font-medium uppercase tracking-widest text-vernon-400;
   }
 
-  /* Buttons — refined, less rounded */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg bg-vernon-950 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-vernon-900 focus:outline-none focus:ring-2 focus:ring-vernon-400 focus:ring-offset-2 active:scale-[0.98];
+    @apply inline-flex items-center justify-center rounded-xl bg-vernon-900 px-6 py-3 text-sm font-medium text-white shadow-sm transition-all hover:bg-vernon-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-vernon-500 focus:ring-offset-2 active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-lg border border-vernon-200 bg-white px-6 py-3 text-sm font-medium text-vernon-900 transition-all hover:border-vernon-300 hover:bg-vernon-50 focus:outline-none focus:ring-2 focus:ring-vernon-400 focus:ring-offset-2 active:scale-[0.98];
+    @apply inline-flex items-center justify-center rounded-xl border border-vernon-200 bg-white px-6 py-3 text-sm font-medium text-vernon-900 transition-all hover:border-vernon-300 hover:bg-vernon-50 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-vernon-500 focus:ring-offset-2 active:scale-[0.98];
   }
 
   .btn-ghost {
@@ -91,7 +86,7 @@
   }
 
   .card {
-    @apply rounded-2xl border border-vernon-100 bg-white p-6 transition-all hover:border-vernon-200;
+    @apply rounded-2xl border border-vernon-100/80 bg-white p-6 shadow-sm transition-all hover:border-vernon-200 hover:shadow-md;
   }
 
   .card-flat {
@@ -135,17 +130,14 @@
     @apply font-medium text-vernon-800;
   }
 
-  /* Card hover lift */
+  /* Card hover lift - Stripe pattern */
   .card-lift {
-    @apply transition-all duration-500 ease-out hover:-translate-y-1;
-    &:hover {
-      box-shadow: 0 12px 40px -12px rgba(38, 35, 32, 0.08);
-    }
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-vernon-900/5;
   }
 
-  /* Gradient text — subtle, warm */
+  /* Gradient text — clinical teal */
   .text-gradient {
-    background: linear-gradient(135deg, theme('colors.vernon.950'), theme('colors.clinical.700'), theme('colors.vernon.900'));
+    background: linear-gradient(135deg, theme('colors.vernon.900'), theme('colors.clinical.600'), theme('colors.vernon.800'));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -189,6 +181,8 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
 
+  /* ─── Premium Immersive Styles ─── */
+
   /* Noise texture overlay */
   .noise-overlay::after {
     content: '';
@@ -200,13 +194,13 @@
     mix-blend-mode: overlay;
   }
 
-  /* Cinematic gradient text — subtle shimmer */
+  /* Cinematic gradient text */
   .text-shimmer {
     background: linear-gradient(
       110deg,
-      theme('colors.vernon.950') 35%,
-      theme('colors.clinical.700') 50%,
-      theme('colors.vernon.950') 65%
+      theme('colors.vernon.900') 35%,
+      theme('colors.clinical.600') 50%,
+      theme('colors.vernon.900') 65%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -285,7 +279,7 @@
     background: linear-gradient(
       180deg,
       transparent 60%,
-      rgba(38, 35, 32, 0.5) 100%
+      rgba(35, 45, 54, 0.6) 100%
     );
     pointer-events: none;
   }
@@ -302,9 +296,11 @@
     animation-play-state: paused;
   }
 
+  /* ─── Premium Upgrade Styles ─── */
+
   /* Frosted glass card */
   .glass-card {
-    @apply rounded-2xl border border-white/15 bg-white/60 backdrop-blur-xl;
+    @apply rounded-2xl border border-white/20 bg-white/60 shadow-lg backdrop-blur-xl;
   }
 
   /* Gradient border card (animated) */
@@ -394,7 +390,7 @@
     background: linear-gradient(
       180deg,
       transparent 50%,
-      rgba(38, 35, 32, 0.12) 100%
+      rgba(35, 45, 54, 0.15) 100%
     );
     pointer-events: none;
   }
@@ -404,20 +400,22 @@
     @apply flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-clinical-50 font-mono text-sm font-semibold text-clinical-700;
   }
 
-  /* Elevated card with multi-layer shadow — more refined */
+  /* Elevated card with multi-layer shadow */
   .card-elevated {
     box-shadow:
-      0 0 0 1px theme('colors.vernon.100'),
-      0 1px 2px theme('colors.vernon.950/0.03'),
-      0 4px 16px theme('colors.vernon.950/0.04');
-    transition: all 0.5s cubic-bezier(0.25, 0.4, 0.25, 1);
+      0 0 0 1px theme('colors.vernon.100/0.6'),
+      0 1px 2px theme('colors.vernon.900/0.04'),
+      0 4px 12px theme('colors.vernon.900/0.03'),
+      0 12px 40px theme('colors.vernon.900/0.05');
+    transition: all 0.4s cubic-bezier(0.25, 0.4, 0.25, 1);
   }
 
   .card-elevated:hover {
     box-shadow:
       0 0 0 1px theme('colors.vernon.200'),
-      0 4px 8px theme('colors.vernon.950/0.04'),
-      0 16px 48px theme('colors.vernon.950/0.06');
+      0 2px 4px theme('colors.vernon.900/0.06'),
+      0 8px 20px theme('colors.vernon.900/0.06'),
+      0 20px 60px theme('colors.vernon.900/0.08');
     transform: translateY(-2px);
   }
 
@@ -433,7 +431,7 @@
     left: 50%;
     width: 0;
     height: 1.5px;
-    background: theme('colors.vernon.950');
+    background: theme('colors.clinical.600');
     border-radius: 1px;
     transition: all 0.3s cubic-bezier(0.25, 0.4, 0.25, 1);
   }
@@ -478,7 +476,7 @@
   }
 }
 
-/* Keyframes */
+/* ─── Keyframes ─── */
 
 @keyframes fadeSlideIn {
   from {
@@ -518,6 +516,7 @@
   75% { transform: translate(-30px, -10px) rotate(1deg); }
 }
 
+/* Animated mesh gradient background */
 @keyframes meshGradient {
   0%, 100% { background-position: 0% 50%; }
   25% { background-position: 100% 0%; }
@@ -554,7 +553,7 @@
   animation: pulse-soft 4s ease-in-out infinite;
 }
 
-/* Reduced Motion Support */
+/* ─── Reduced Motion Support ─── */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -581,12 +580,12 @@
   }
 }
 
-/* Aurora Gradient System */
+/* ─── Aurora Gradient System ─── */
 .aurora-bg {
   background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(13,148,136,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(56,189,248,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 50% at 50% 80%, rgba(13,148,136,0.08) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(13,148,136,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgba(56,189,248,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 50% 80%, rgba(13,148,136,0.1) 0%, transparent 50%);
 }
 
 .aurora-animate {
