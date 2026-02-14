@@ -7,6 +7,7 @@ import { getFeaturedVideos, youtubeChannelUrl } from '@/data/youtube-videos'
 export function VideoShowcase() {
   const featured = getFeaturedVideos()
   const [activeVideo, setActiveVideo] = useState(featured[0])
+  const [isPlaying, setIsPlaying] = useState(false)
   const headingRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(headingRef, { once: true, margin: '-50px' })
 
@@ -73,13 +74,33 @@ export function VideoShowcase() {
             className="lg:col-span-2"
           >
             <div className="relative aspect-video overflow-hidden rounded-xl bg-black shadow-2xl shadow-black/50">
-              <iframe
-                src={`https://www.youtube.com/embed/${activeVideo.id}?rel=0&modestbranding=1`}
-                title={activeVideo.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full"
-              />
+              {isPlaying ? (
+                <iframe
+                  src={`https://www.youtube.com/embed/${activeVideo.id}?rel=0&modestbranding=1&autoplay=1`}
+                  title={activeVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              ) : (
+                <button
+                  onClick={() => setIsPlaying(true)}
+                  className="group absolute inset-0 flex items-center justify-center"
+                  aria-label={`Play video: ${activeVideo.title}`}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${activeVideo.id}/maxresdefault.jpg`}
+                    alt={activeVideo.title}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/30 transition-colors group-hover:bg-black/20" />
+                  <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-red-600 shadow-2xl transition-transform group-hover:scale-110">
+                    <svg className="ml-1 h-7 w-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </button>
+              )}
             </div>
             <h3 className="mt-4 text-lg font-medium text-white">
               {activeVideo.title}
@@ -102,7 +123,7 @@ export function VideoShowcase() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.4 + index * 0.08 }}
-                onClick={() => setActiveVideo(video)}
+                onClick={() => { setActiveVideo(video); setIsPlaying(false); }}
                 className={`group flex items-start gap-3 rounded-lg p-3 text-left transition-all duration-200 ${
                   activeVideo.id === video.id
                     ? 'bg-white/10'

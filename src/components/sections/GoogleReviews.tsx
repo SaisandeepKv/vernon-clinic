@@ -153,12 +153,19 @@ function ReviewCard({ review }: { review: Review }) {
   )
 }
 
+const reviewCategories = ['All', 'Hair Restoration', 'Laser', 'Aesthetics', 'Pigmentation', 'Acne Scars', 'Clinical Dermatology', 'Pediatric', 'General']
+
 export function GoogleReviews() {
   const [reviews, setReviews] = useState<Review[]>(staticReviews)
+  const [activeCategory, setActiveCategory] = useState('All')
   const headingRef = useRef<HTMLDivElement>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(headingRef, { once: true, margin: '-50px' })
   const [isPaused, setIsPaused] = useState(false)
+
+  const filteredReviews = activeCategory === 'All'
+    ? reviews
+    : reviews.filter((r) => r.treatment_category === activeCategory)
 
   useEffect(() => {
     async function fetchReviews() {
@@ -240,6 +247,27 @@ export function GoogleReviews() {
             </div>
           </motion.div>
         </div>
+        {/* Category filter pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-8 flex flex-wrap gap-2"
+        >
+          {reviewCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+                activeCategory === cat
+                  ? 'bg-vernon-900 text-white shadow-sm'
+                  : 'bg-vernon-50 text-vernon-500 hover:bg-vernon-100 hover:text-vernon-700'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
       </div>
 
       {/* Horizontal auto-scroll carousel */}
@@ -263,7 +291,7 @@ export function GoogleReviews() {
           }}
         >
           {/* Double the reviews for seamless loop */}
-          {[...reviews, ...reviews].map((review, index) => (
+          {[...filteredReviews, ...filteredReviews].map((review, index) => (
             <ReviewCard key={`${review.author_name}-${index}`} review={review} />
           ))}
         </div>

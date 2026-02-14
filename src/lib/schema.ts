@@ -247,3 +247,119 @@ export function generateBreadcrumbSchema(
     })),
   }
 }
+
+export function generateMedicalWebPageSchema(treatment: Treatment) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: treatment.name,
+    about: {
+      '@type': 'MedicalCondition',
+      name: treatment.name,
+    },
+    lastReviewed: new Date().toISOString().split('T')[0],
+    reviewedBy: {
+      '@type': 'Physician',
+      name: 'Dr. R. Brahmananda Reddy',
+      '@id': 'https://vernonskinclinic.com/about/dr-brahmananda-reddy#physician',
+    },
+    mainContentOfPage: {
+      '@type': 'WebPageElement',
+      about: {
+        '@type': 'MedicalProcedure',
+        name: treatment.name,
+      },
+    },
+    specialty: {
+      '@type': 'MedicalSpecialty',
+      name: 'Dermatology',
+    },
+  }
+}
+
+export function generateArticleSchema(post: {
+  title: string
+  slug: string
+  excerpt: string
+  author: string
+  date: string
+  coverImage?: string
+  category?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    url: `https://vernonskinclinic.com/blog/${post.slug}`,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+      url: 'https://vernonskinclinic.com/about/dr-brahmananda-reddy',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Vernon Skin and Hair Clinic',
+      '@id': 'https://vernonskinclinic.com/#organization',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://vernonskinclinic.com/images/logo.png',
+      },
+    },
+    image: post.coverImage || 'https://vernonskinclinic.com/images/og-default.jpg',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://vernonskinclinic.com/blog/${post.slug}`,
+    },
+    articleSection: post.category || 'Dermatology',
+  }
+}
+
+export function generateReviewSchema(reviews: {
+  author_name: string
+  rating: number
+  text: string
+}[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalOrganization',
+    name: 'Vernon Skin and Hair Clinic',
+    '@id': 'https://vernonskinclinic.com/#organization',
+    review: reviews.map((r) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: r.author_name,
+      },
+      reviewBody: r.text,
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: String(r.rating),
+        bestRating: '5',
+      },
+    })),
+  }
+}
+
+export function generateHowToSchema(steps: { title: string; description: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Book and Receive Treatment at Vernon Skin and Hair Clinic',
+    description: 'Step-by-step guide to receiving dermatological treatment at Vernon Clinic Hyderabad',
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.title,
+      text: step.description,
+    })),
+    totalTime: 'PT30M',
+    estimatedCost: {
+      '@type': 'MonetaryAmount',
+      currency: 'INR',
+      value: '400',
+    },
+  }
+}

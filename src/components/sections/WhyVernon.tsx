@@ -1,7 +1,8 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useCallback } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { TiltCard } from '@/components/ui/MotionPrimitives'
 
 const differentiators = [
   {
@@ -138,6 +139,15 @@ function CardItem({
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-30px' })
+  const gradientRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const el = gradientRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    el.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`)
+    el.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`)
+  }, [])
 
   return (
     <motion.div
@@ -149,10 +159,17 @@ function CardItem({
         delay: index * 0.1,
         ease: [0.25, 0.4, 0.25, 1],
       }}
-      className="group relative h-full overflow-hidden rounded-2xl border border-vernon-100/60 bg-white p-6 transition-all duration-400 hover:border-vernon-200 card-elevated"
+      onMouseMove={handleMouseMove}
     >
-      {/* Gradient accent on hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
+    <TiltCard className="group relative h-full overflow-hidden rounded-2xl border border-vernon-100/60 bg-white p-6 transition-all duration-400 hover:border-vernon-200 card-elevated" tiltAmount={4}>
+      {/* Cursor-following gradient accent on hover */}
+      <div
+        ref={gradientRef}
+        className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${item.gradient.includes('blue') ? 'rgba(59,130,246,0.06)' : item.gradient.includes('emerald') ? 'rgba(16,185,129,0.06)' : item.gradient.includes('purple') ? 'rgba(168,85,247,0.06)' : item.gradient.includes('amber') ? 'rgba(245,158,11,0.06)' : item.gradient.includes('clinical') ? 'rgba(13,148,136,0.06)' : 'rgba(244,63,94,0.06)'}, transparent 40%)`,
+        }}
+      />
 
       <div className="relative">
         <div className="flex items-start gap-4">
@@ -174,6 +191,7 @@ function CardItem({
           {item.description}
         </p>
       </div>
+    </TiltCard>
     </motion.div>
   )
 }

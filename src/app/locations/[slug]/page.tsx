@@ -20,9 +20,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params
   const location = getLocation(slug)
   if (!location) return {}
+
+  const geoDescriptions: Record<string, string> = {
+    'banjara-hills': `Visit Vernon Skin and Hair Clinic in Banjara Hills, Hyderabad. Premium dermatology consultations with UK-trained Dr. Brahmananda Reddy. Hair transplant, Pico laser, Botox & fillers near Road No. 12, Banjara Hills.`,
+    'manikonda': `Vernon Skin and Hair Clinic Manikonda — Hyderabad's trusted dermatology center near Lanco Hills. Hair transplant, laser treatments, acne scar revision & clinical dermatology by Dr. Brahmananda Reddy.`,
+    'gachibowli': `Vernon Skin and Hair Clinic Gachibowli — convenient dermatology for IT professionals near DLF Cyber City. Hair transplant, Pico laser, skin treatments by UK-trained Dr. Brahmananda Reddy.`,
+  }
+
+  const geoKeywords: Record<string, string[]> = {
+    'banjara-hills': ['dermatologist Banjara Hills', 'skin clinic Banjara Hills', 'hair transplant Banjara Hills', 'Vernon clinic Road No 12'],
+    'manikonda': ['dermatologist Manikonda', 'skin clinic Manikonda', 'hair transplant Manikonda', 'Vernon clinic Lanco Hills'],
+    'gachibowli': ['dermatologist Gachibowli', 'skin clinic Gachibowli', 'hair transplant Gachibowli', 'Vernon clinic DLF Cyber City'],
+  }
+
   return {
     title: location.metaTitle,
-    description: location.metaDescription,
+    description: geoDescriptions[slug] || location.metaDescription,
+    keywords: geoKeywords[slug] || [],
     alternates: {
       canonical: `https://vernonskinclinic.com/locations/${location.slug}`,
     },

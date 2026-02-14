@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider'
+import { ClipReveal, ScaleOnScroll } from '@/components/ui/MotionPrimitives'
 
 const cases = [
   {
@@ -39,12 +40,14 @@ function CaseCard({ item, index }: { item: typeof cases[number]; index: number }
       }}
       className="group overflow-hidden rounded-2xl border border-vernon-100 bg-white transition-all duration-300 hover:shadow-xl hover:shadow-vernon-900/5 hover:-translate-y-1"
     >
-      {/* Interactive Before/After slider */}
-      <BeforeAfterSlider
-        beforeLabel="Before"
-        afterLabel="After"
-        className="rounded-t-2xl"
-      />
+      {/* Interactive Before/After slider with iris reveal */}
+      <ClipReveal direction="iris">
+        <BeforeAfterSlider
+          beforeLabel="Before"
+          afterLabel="After"
+          className="rounded-t-2xl"
+        />
+      </ClipReveal>
       <div className="p-5">
         <span className="badge-clinical text-2xs">{item.category}</span>
         <h3 className="mt-2 text-base font-medium text-vernon-900 transition-colors group-hover:text-clinical-700">
@@ -110,11 +113,11 @@ export function BeforeAfterPreview() {
           </motion.div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <ScaleOnScroll className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {cases.map((item, index) => (
             <CaseCard key={item.treatment} item={item} index={index} />
           ))}
-        </div>
+        </ScaleOnScroll>
 
         <div className="mt-8 text-center sm:hidden">
           <Link href="/gallery" className="btn-ghost text-clinical-600">

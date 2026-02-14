@@ -55,7 +55,7 @@ export function ClinicUpdates() {
   const config = typeConfig[update.type] || typeConfig.announcement
 
   return (
-    <div className={`${config.bg} text-white`}>
+    <div className={`${config.bg} text-white min-h-[44px]`}>
       <div className="section-max-width section-padding flex items-center justify-between py-2">
         <div className="flex items-center gap-3 overflow-hidden">
           <span className="flex-shrink-0 text-sm">{config.icon}</span>

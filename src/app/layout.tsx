@@ -4,7 +4,10 @@ import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ClinicUpdates } from '@/components/sections/ClinicUpdates'
-import { WhatsAppFloat } from '@/components/sections/WhatsAppFloat'
+import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat'
+import { ExitIntentPopup } from '@/components/ui/ExitIntentPopup'
+import { CallbackWidget } from '@/components/ui/CallbackWidget'
+import { TreatmentFinderQuiz } from '@/components/ui/TreatmentFinderQuiz'
 import { StickyMobileCTA } from '@/components/ui/StickyMobileCTA'
 import { SchemaOrg } from '@/components/schema/SchemaOrg'
 import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar'
@@ -124,6 +127,9 @@ export default function RootLayout({
           </main>
           <Footer />
           <WhatsAppFloat />
+          <ExitIntentPopup />
+          <CallbackWidget />
+          <TreatmentFinderQuiz />
           <StickyMobileCTA />
         </PostHogProvider>
       </body>

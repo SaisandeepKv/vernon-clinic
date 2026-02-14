@@ -1,12 +1,8 @@
-import type { Metadata } from 'next'
+'use client'
+
+import { useState } from 'react'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { ScrollReveal, StaggerReveal, StaggerItem } from '@/components/ui/ScrollReveal'
-
-export const metadata: Metadata = {
-  title: 'Results Gallery | Before & After | Hair Transplant, Pico Laser, Acne Scars',
-  description:
-    'View real before and after results from Vernon Skin and Hair Clinic Hyderabad. Hair transplant, Pico laser, acne scar, and pigmentation treatment results by Dr. Brahmananda Reddy.',
-}
 
 const galleryCategories = [
   'All',
@@ -83,6 +79,8 @@ const sampleGallery = [
 ]
 
 export default function GalleryPage() {
+  const [activeCategory, setActiveCategory] = useState('All')
+
   return (
     <>
       <Breadcrumbs items={[{ name: 'Results Gallery', href: '/gallery' }]} />
@@ -112,8 +110,9 @@ export default function GalleryPage() {
               {galleryCategories.map((cat) => (
                 <button
                   key={cat}
+                  onClick={() => setActiveCategory(cat)}
                   className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                    cat === 'All'
+                    activeCategory === cat
                       ? 'bg-vernon-900 text-white'
                       : 'bg-vernon-50 text-vernon-600 hover:bg-vernon-100'
                   }`}
@@ -126,7 +125,7 @@ export default function GalleryPage() {
 
           {/* Gallery grid */}
           <StaggerReveal className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1} baseDelay={0.15}>
-            {sampleGallery.map((item) => (
+            {sampleGallery.filter(item => activeCategory === 'All' || item.category === activeCategory).map((item) => (
               <StaggerItem key={item.id}>
                 <div className="group card">
                   {/* Before/After placeholder */}

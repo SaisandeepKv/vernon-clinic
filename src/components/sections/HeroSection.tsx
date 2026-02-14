@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useCallback } from 'react'
-import { SpringCounter, Magnetic, KineticHeadline, SpotlightCard } from '@/components/ui/MotionPrimitives'
+import { SpringCounter, Magnetic, KineticHeadline, SpotlightCard, TextScramble } from '@/components/ui/MotionPrimitives'
 import { blurDataURLDark } from '@/lib/image-utils'
 
 export function HeroSection() {
@@ -29,6 +29,11 @@ export function HeroSection() {
     <section ref={containerRef} className="relative min-h-[100dvh] overflow-hidden bg-night-950">
       {/* Aurora gradient background — single pass, lighter GPU load */}
       <div className="absolute inset-0 aurora-bg aurora-animate" />
+
+      {/* Ambient video shimmer — CSS-only, simulates motion texture */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0 animate-[heroShimmer_8s_ease-in-out_infinite] bg-[length:200%_200%] bg-gradient-to-br from-transparent via-white/20 to-transparent" />
+      </div>
 
       {/* Noise overlay */}
       <div className="noise-overlay absolute inset-0" />
@@ -176,7 +181,7 @@ export function HeroSection() {
               <div className="h-10 w-px bg-white/10" />
               <div>
                 <p className="font-display text-3xl font-light tabular-nums text-white">
-                  <SpringCounter value={4.9} suffix="" decimals={1} />
+                  <TextScramble value="4.9" />
                 </p>
                 <p className="text-xs text-vernon-500">Google Rating</p>
               </div>

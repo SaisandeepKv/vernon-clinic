@@ -22,7 +22,6 @@ export function BookingCTA({
     phone: '',
     treatment: treatment || '',
     location: location || '',
-    message: '',
   })
   const [submitted, setSubmitted] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -61,7 +60,7 @@ export function BookingCTA({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // In production: POST to API route -> WhatsApp webhook
-    const message = `New Consultation Request%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0ATreatment: ${formData.treatment}%0ALocation: ${formData.location}%0AMessage: ${formData.message}`
+    const message = `New Consultation Request%0A%0AName: ${formData.name}%0APhone: ${formData.phone}%0ATreatment: ${formData.treatment}%0ALocation: ${formData.location}`
     window.open(`https://wa.me/919100017567?text=${message}`, '_blank')
     setSubmitted(true)
   }
@@ -125,25 +124,33 @@ export function BookingCTA({
               <option key={t} value={t}>{t}</option>
             ))}
           </select>
-          <label className="sr-only" htmlFor="booking-location-float">Location</label>
-          <select
-            id="booking-location-float"
-            value={formData.location}
-            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-            className="w-full rounded-lg border border-vernon-200 px-3 py-2.5 text-sm text-vernon-900 focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500"
-          >
-            <option value="">Select location</option>
-            {locations.map((l) => (
-              <option key={l.id} value={l.name}>{l.name}</option>
-            ))}
-          </select>
           <button type="submit" className="btn-primary w-full">
-            Request Appointment
+            Check Availability
           </button>
         </form>
         <p className="mt-3 text-center text-xs text-vernon-400">
           Or call directly: <a href="tel:+919100017567" className="text-clinical-600 hover:underline">+91 91000 17567</a>
         </p>
+        <div className="mt-2 space-y-1">
+          <p className="flex items-center gap-1.5 text-2xs text-vernon-400">
+            <svg className="h-3 w-3 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            4.9 stars &middot; 3,400+ Google reviews
+          </p>
+          <p className="flex items-center gap-1.5 text-2xs text-vernon-400">
+            <svg className="h-3 w-3 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            No-obligation consultation
+          </p>
+          <p className="flex items-center gap-1.5 text-2xs text-vernon-400">
+            <svg className="h-3 w-3 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Response within 30 minutes
+          </p>
+        </div>
       </div>
     )
   }
@@ -244,19 +251,8 @@ export function BookingCTA({
           </select>
         </div>
         <div className="sm:col-span-2">
-          <label className="sr-only" htmlFor="booking-message">Description of your concern</label>
-          <textarea
-            id="booking-message"
-            placeholder="Brief description of your concern (optional)"
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            rows={3}
-            className="w-full rounded-lg border border-vernon-700 bg-vernon-900 px-4 py-3 text-sm text-white placeholder:text-vernon-500 focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500 transition-colors"
-          />
-        </div>
-        <div className="sm:col-span-2">
           <button type="submit" className="btn-primary w-full bg-clinical-600 hover:bg-clinical-700 active:scale-[0.98] transition-all">
-            Request Consultation
+            Book My Assessment
           </button>
         </div>
       </motion.form>
