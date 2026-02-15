@@ -960,6 +960,7 @@ export function ChatWidget() {
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [skinAnalysis, setSkinAnalysis] = useState<AnalysisApiResponse | null>(null)
   const [showScanLeadForm, setShowScanLeadForm] = useState(false)
+  const [showPhotoSourcePicker, setShowPhotoSourcePicker] = useState(false)
   const [scanLead, setScanLead] = useState<{ name: string; phone: string } | null>(null)
   const [callbackSuccess, setCallbackSuccess] = useState(false)
   const [bookingResult, setBookingResult] = useState<Record<string, string> | null>(null)
@@ -968,6 +969,7 @@ export function ChatWidget() {
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const scanInputRef = useRef<HTMLInputElement>(null)
+  const galleryInputRef = useRef<HTMLInputElement>(null)
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null)
   const proactiveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -1099,6 +1101,7 @@ export function ChatWidget() {
     }
 
     if (scanInputRef.current) scanInputRef.current.value = ''
+    if (galleryInputRef.current) galleryInputRef.current.value = ''
 
     // Start skin analysis with lead data
     setIsAnalyzing(true)
@@ -1196,12 +1199,11 @@ export function ChatWidget() {
     setBookingResult(details)
   }, [])
 
-  // Handle scan lead form submission — user provided name+phone, now open camera
+  // Handle scan lead form submission — user provided name+phone, now show photo source picker
   const handleScanLeadSubmit = useCallback((name: string, phone: string) => {
     setScanLead({ name, phone })
     setShowScanLeadForm(false)
-    // Small delay to let the form close, then open camera
-    setTimeout(() => scanInputRef.current?.click(), 100)
+    setShowPhotoSourcePicker(true)
   }, [])
 
   // Handle suggestion click — intercept special actions
@@ -1295,12 +1297,13 @@ export function ChatWidget() {
     ? 'fixed z-[60] flex flex-col overflow-hidden rounded-[28px] border border-gray-200/50 bg-white shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] backdrop-blur-sm max-sm:inset-x-2 max-sm:bottom-2 max-sm:top-14 sm:bottom-4 sm:right-4 sm:h-[85vh] sm:w-[560px]'
     : 'fixed z-[60] flex flex-col overflow-hidden rounded-[28px] border border-gray-200/50 bg-white shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] backdrop-blur-sm max-sm:inset-x-2 max-sm:bottom-2 max-sm:top-14 sm:bottom-6 sm:right-6 sm:h-[660px] sm:w-[420px]'
 
-  const showFormOverlay = showCallbackForm || showBookingForm || showScanLeadForm
+  const showFormOverlay = showCallbackForm || showBookingForm || showScanLeadForm || showPhotoSourcePicker
 
   return (
     <>
       <input ref={fileInputRef} type="file" accept="image/*" onChange={handleImageSelect} className="hidden" aria-hidden="true" />
       <input ref={scanInputRef} type="file" accept="image/*" capture="environment" onChange={handleScanSelect} className="hidden" aria-hidden="true" />
+      <input ref={galleryInputRef} type="file" accept="image/*" onChange={handleScanSelect} className="hidden" aria-hidden="true" />
 
       {/* ---- Floating Chat Button ---- */}
       <AnimatePresence>
@@ -1552,7 +1555,7 @@ export function ChatWidget() {
                         <div className="rounded-2xl rounded-tl-md bg-white px-4 py-3 text-[14px] leading-relaxed text-gray-700 shadow-sm ring-1 ring-gray-100/80">
                           <p>{skinAnalysis.error || 'Could not analyze the image. Please try again with a clearer photo.'}</p>
                           <button
-                            onClick={() => { setSkinAnalysis(null); setShowScanLeadForm(true) }}
+                            onClick={() => { setSkinAnalysis(null); scanLead ? setShowPhotoSourcePicker(true) : setShowScanLeadForm(true) }}
                             className="mt-2 rounded-full border border-earth-200 bg-earth-50 px-3 py-1 text-[12px] font-medium text-earth-700 transition-all hover:bg-earth-100"
                           >
                             Try Again
@@ -1636,6 +1639,52 @@ export function ChatWidget() {
                   onSubmit={handleScanLeadSubmit}
                   onClose={() => setShowScanLeadForm(false)}
                 />
+              )}
+            </AnimatePresence>
+
+            {/* ---- Photo Source Picker (camera vs gallery) ---- */}
+            <AnimatePresence>
+              {showPhotoSourcePicker && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  className="mx-2 mb-3 overflow-hidden rounded-2xl border border-earth-200/80 bg-gradient-to-br from-earth-50 to-white shadow-sm"
+                >
+                  <div className="flex items-center justify-between border-b border-earth-100 bg-earth-50/50 px-4 py-2.5">
+                    <span className="text-[13px] font-semibold text-earth-800">Choose Photo Source</span>
+                    <button onClick={() => setShowPhotoSourcePicker(false)} className="rounded-full p-1 text-earth-400 hover:bg-earth-100 hover:text-earth-600">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 p-4">
+                    <button
+                      onClick={() => { setShowPhotoSourcePicker(false); scanInputRef.current?.click() }}
+                      className="flex flex-col items-center gap-2 rounded-xl border border-earth-200 bg-white px-4 py-4 transition-all hover:border-brand-300 hover:bg-brand-50 active:scale-[0.97]"
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100">
+                        <svg className="h-5 w-5 text-brand-700" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+                        </svg>
+                      </div>
+                      <span className="text-[12px] font-medium text-gray-700">Take Photo</span>
+                    </button>
+                    <button
+                      onClick={() => { setShowPhotoSourcePicker(false); galleryInputRef.current?.click() }}
+                      className="flex flex-col items-center gap-2 rounded-xl border border-earth-200 bg-white px-4 py-4 transition-all hover:border-brand-300 hover:bg-brand-50 active:scale-[0.97]"
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-earth-100">
+                        <svg className="h-5 w-5 text-earth-700" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+                        </svg>
+                      </div>
+                      <span className="text-[12px] font-medium text-gray-700">From Gallery</span>
+                    </button>
+                  </div>
+                </motion.div>
               )}
             </AnimatePresence>
 
