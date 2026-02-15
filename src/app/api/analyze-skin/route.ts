@@ -179,18 +179,25 @@ export async function POST(req: Request) {
       })
     }
 
-    // Save analysis to Notion (non-blocking — don't fail the response if Notion errors)
+    // Save analysis to Notion as a lead
     const concernNames = analysis.concerns.map((c) => `${c.name} (${c.severity})`).join(', ')
-    postSkinAnalysisToNotion({
-      name: name.trim(),
-      phone: phone.trim(),
-      score: analysis.overallScore,
-      skinAge: analysis.estimatedSkinAge,
-      imageType: analysis.imageType,
-      summary: analysis.summary,
-      concerns: concernNames || 'None detected',
-      hairStage: analysis.hairAnalysis?.stage,
-    }).catch((err) => console.error('Non-blocking Notion save failed:', err))
+    try {
+      const notionResult = await postSkinAnalysisToNotion({
+        name: name.trim(),
+        phone: phone.trim(),
+        score: analysis.overallScore,
+        skinAge: analysis.estimatedSkinAge,
+        imageType: analysis.imageType,
+        summary: analysis.summary,
+        concerns: concernNames || 'None detected',
+        hairStage: analysis.hairAnalysis?.stage,
+      })
+      if (!notionResult.success) {
+        console.error('Notion skin analysis save error:', notionResult.error)
+      }
+    } catch (err) {
+      console.error('Notion skin analysis save exception:', err)
+    }
 
     return NextResponse.json({
       success: true,

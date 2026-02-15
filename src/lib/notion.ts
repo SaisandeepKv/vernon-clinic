@@ -160,7 +160,7 @@ export async function checkScanExistsToday(
       filter: {
         and: [
           { property: 'Phone', phone_number: { equals: phone } },
-          { property: 'Status', select: { equals: 'Skin Analysis' } },
+          { property: 'Source', select: { equals: 'Skin Analysis' } },
           { property: 'Date', date: { equals: today } },
         ],
       },
@@ -217,10 +217,10 @@ export async function postSkinAnalysisToNotion(
           date: { start: today },
         },
         Status: {
-          select: { name: 'Skin Analysis' },
+          select: { name: 'Pending' },
         },
         Source: {
-          select: { name: 'Website Chatbot' },
+          select: { name: 'Skin Analysis' },
         },
         Notes: {
           rich_text: [{ text: { content: notesLines.slice(0, 2000) } }],
