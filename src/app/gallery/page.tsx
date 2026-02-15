@@ -93,7 +93,7 @@ export default function GalleryPage() {
           <ScrollReveal delay={0.1}>
             <h1 className="heading-1 mt-3 max-w-3xl">
               Results speak{' '}
-              <span className="italic text-vernon-600">louder than claims</span>
+              <span className="italic text-brand-600">louder than claims</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -113,8 +113,8 @@ export default function GalleryPage() {
                   onClick={() => setActiveCategory(cat)}
                   className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     activeCategory === cat
-                      ? 'bg-vernon-900 text-white'
-                      : 'bg-vernon-50 text-vernon-600 hover:bg-vernon-100'
+                      ? 'bg-brand-900 text-white'
+                      : 'bg-brand-50 text-brand-600 hover:bg-brand-100'
                   }`}
                 >
                   {cat}
@@ -129,47 +129,47 @@ export default function GalleryPage() {
               <StaggerItem key={item.id}>
                 <div className="group card">
                   {/* Before/After placeholder */}
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-vernon-100">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-brand-100">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="grid w-full grid-cols-2 gap-0.5">
-                        <div className="flex h-full items-center justify-center bg-vernon-200 py-12">
-                          <span className="text-xs font-medium text-vernon-500">BEFORE</span>
+                        <div className="flex h-full items-center justify-center bg-brand-200 py-12">
+                          <span className="text-xs font-medium text-brand-500">BEFORE</span>
                         </div>
-                        <div className="flex h-full items-center justify-center bg-vernon-150 py-12">
-                          <span className="text-xs font-medium text-vernon-500">AFTER</span>
+                        <div className="flex h-full items-center justify-center bg-brand-100 py-12">
+                          <span className="text-xs font-medium text-brand-500">AFTER</span>
                         </div>
                       </div>
                     </div>
                     {/* Metadata overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-vernon-950/80 to-transparent p-4">
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-950/80 to-transparent p-4">
                       <span className="badge-clinical text-2xs">{item.category}</span>
                     </div>
                   </div>
 
                   <div className="mt-4">
-                    <h3 className="text-base font-medium text-vernon-900">
+                    <h3 className="text-base font-medium text-brand-900">
                       {item.treatment}
                     </h3>
-                    <p className="mt-1 text-sm text-vernon-500">{item.description}</p>
+                    <p className="mt-1 text-sm text-brand-500">{item.description}</p>
                   </div>
 
                   {/* Metadata */}
                   <div className="mt-3 grid grid-cols-2 gap-2">
-                    <div className="rounded bg-vernon-50 px-3 py-1.5">
-                      <span className="block text-2xs text-vernon-400">Sessions</span>
-                      <span className="text-xs font-medium text-vernon-700">{item.sessions}</span>
+                    <div className="rounded bg-brand-50 px-3 py-1.5">
+                      <span className="block text-2xs text-brand-400">Sessions</span>
+                      <span className="text-xs font-medium text-brand-700">{item.sessions}</span>
                     </div>
-                    <div className="rounded bg-vernon-50 px-3 py-1.5">
-                      <span className="block text-2xs text-vernon-400">Timeline</span>
-                      <span className="text-xs font-medium text-vernon-700">{item.duration}</span>
+                    <div className="rounded bg-brand-50 px-3 py-1.5">
+                      <span className="block text-2xs text-brand-400">Timeline</span>
+                      <span className="text-xs font-medium text-brand-700">{item.duration}</span>
                     </div>
-                    <div className="rounded bg-vernon-50 px-3 py-1.5">
-                      <span className="block text-2xs text-vernon-400">Patient</span>
-                      <span className="text-xs font-medium text-vernon-700">{item.patientGender}, {item.patientAge}</span>
+                    <div className="rounded bg-brand-50 px-3 py-1.5">
+                      <span className="block text-2xs text-brand-400">Patient</span>
+                      <span className="text-xs font-medium text-brand-700">{item.patientGender}, {item.patientAge}</span>
                     </div>
-                    <div className="rounded bg-vernon-50 px-3 py-1.5">
-                      <span className="block text-2xs text-vernon-400">Doctor</span>
-                      <span className="text-xs font-medium text-vernon-700">Dr. Reddy</span>
+                    <div className="rounded bg-brand-50 px-3 py-1.5">
+                      <span className="block text-2xs text-brand-400">Doctor</span>
+                      <span className="text-xs font-medium text-brand-700">Dr. Reddy</span>
                     </div>
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export default function GalleryPage() {
           </StaggerReveal>
 
           <ScrollReveal delay={0.2} className="mt-12">
-            <div className="rounded-xl border border-vernon-200 bg-vernon-50 p-8 text-center">
+            <div className="rounded-xl border border-brand-200 bg-brand-50 p-8 text-center">
               <h3 className="heading-4">Want to see results for your specific condition?</h3>
               <p className="body-small mt-2">
                 During your consultation, Dr. Reddy can show you relevant before/after

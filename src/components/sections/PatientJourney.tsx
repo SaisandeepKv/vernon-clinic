@@ -78,7 +78,7 @@ function StepCard({ step, index }: { step: typeof steps[number]; index: number }
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : {}}
           transition={{ duration: 0.8, delay: index * 0.15 + 0.4, ease: [0.25, 0.4, 0.25, 1] }}
-          className="absolute left-[calc(50%+1.5rem)] right-0 top-6 hidden h-px origin-left bg-gradient-to-r from-vernon-200 to-vernon-100 lg:block"
+          className="absolute left-[calc(50%+1.5rem)] right-0 top-6 hidden h-px origin-left bg-gradient-to-r from-brand-200 to-brand-100 lg:block"
         />
       )}
 
@@ -93,23 +93,23 @@ function StepCard({ step, index }: { step: typeof steps[number]; index: number }
             damping: 20,
             delay: index * 0.15 + 0.1,
           }}
-          className="relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-vernon-900 text-white shadow-lg shadow-vernon-900/20"
+          className="relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-brand-900 text-white shadow-lg shadow-brand-900/20"
         >
           <AnimatedIcon path={step.iconPath} isInView={isInView} delay={index * 0.15 + 0.3} />
         </motion.div>
 
         <div className="flex-1 lg:mt-4">
-          <h3 className="text-lg font-medium text-vernon-900">
+          <h3 className="text-lg font-medium text-brand-900">
             {step.title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-vernon-500">
+          <p className="mt-2 text-sm leading-relaxed text-brand-500">
             {step.description}
           </p>
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.4, delay: index * 0.15 + 0.3 }}
-            className="mt-3 inline-block rounded-full bg-clinical-50 px-3 py-1 text-xs font-medium text-clinical-700"
+            className="mt-3 inline-block rounded-full bg-earth-50 px-3 py-1 text-xs font-medium text-earth-700"
           >
             {step.detail}
           </motion.span>

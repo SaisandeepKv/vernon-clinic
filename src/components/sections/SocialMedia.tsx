@@ -18,7 +18,7 @@ const instagramPosts = [
     type: 'result' as const,
     caption: 'Hair transplant — 8 month follow-up. 3200 grafts FUE technique.',
     likes: 342,
-    gradient: 'from-vernon-800 via-vernon-700 to-vernon-600',
+    gradient: 'from-brand-800 via-brand-700 to-brand-600',
     icon: '💇',
     tag: 'Before & After',
   },
@@ -27,7 +27,7 @@ const instagramPosts = [
     type: 'education' as const,
     caption: 'Pico laser vs Q-switch — which one suits your pigmentation?',
     likes: 518,
-    gradient: 'from-clinical-700 via-clinical-600 to-clinical-500',
+    gradient: 'from-earth-700 via-earth-600 to-earth-500',
     icon: '🔬',
     tag: 'Education',
   },
@@ -201,7 +201,7 @@ export function SocialMedia() {
   const reviewBarInView = useInView(reviewBarRef, { once: true, margin: '-30px' })
 
   return (
-    <section className="bg-vernon-50/50 py-20 lg:py-28">
+    <section className="bg-brand-50/50 py-20 lg:py-28">
       <div className="section-max-width section-padding">
         {/* Header */}
         <div ref={headingRef} className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -210,7 +210,7 @@ export function SocialMedia() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-xs font-semibold uppercase tracking-widest text-clinical-600"
+              className="text-xs font-semibold uppercase tracking-widest text-earth-600"
             >
               Stay Connected
             </motion.span>
@@ -218,7 +218,7 @@ export function SocialMedia() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-3 text-3xl font-light tracking-tight text-vernon-900 lg:text-4xl"
+              className="mt-3 text-3xl font-light tracking-tight text-brand-900 lg:text-4xl"
             >
               Follow Vernon for{' '}
               <span className="text-shimmer">
@@ -229,7 +229,7 @@ export function SocialMedia() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-4 text-base text-vernon-500"
+              className="mt-4 text-base text-brand-500"
             >
               Treatment results, educational reels, skincare tips, and behind-the-scenes
               — directly from Dr. Brahmananda Reddy.
@@ -244,18 +244,18 @@ export function SocialMedia() {
             className="flex items-center gap-6"
           >
             <div className="text-center">
-              <span className="block font-display text-2xl text-vernon-900">14K+</span>
-              <span className="text-xs text-vernon-400">Followers</span>
+              <span className="block font-display text-2xl text-brand-900">14K+</span>
+              <span className="text-xs text-brand-400">Followers</span>
             </div>
-            <div className="h-8 w-px bg-vernon-200" />
+            <div className="h-8 w-px bg-brand-200" />
             <div className="text-center">
-              <span className="block font-display text-2xl text-vernon-900">790+</span>
-              <span className="text-xs text-vernon-400">Posts</span>
+              <span className="block font-display text-2xl text-brand-900">790+</span>
+              <span className="text-xs text-brand-400">Posts</span>
             </div>
-            <div className="h-8 w-px bg-vernon-200" />
+            <div className="h-8 w-px bg-brand-200" />
             <div className="text-center">
-              <span className="block font-display text-2xl text-vernon-900">48+</span>
-              <span className="text-xs text-vernon-400">Videos</span>
+              <span className="block font-display text-2xl text-brand-900">48+</span>
+              <span className="text-xs text-brand-400">Videos</span>
             </div>
           </motion.div>
         </div>
@@ -266,12 +266,12 @@ export function SocialMedia() {
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 p-[2px]">
                 <div className="flex h-full w-full items-center justify-center rounded-full bg-white">
-                  <span className="text-xs font-bold text-vernon-900">V</span>
+                  <span className="text-xs font-bold text-brand-900">V</span>
                 </div>
               </div>
               <div>
-                <p className="text-sm font-semibold text-vernon-900">vernonskinclinic</p>
-                <p className="text-xs text-vernon-400">Vernon Skin and Hair Clinic</p>
+                <p className="text-sm font-semibold text-brand-900">vernonskinclinic</p>
+                <p className="text-xs text-brand-400">Vernon Skin and Hair Clinic</p>
               </div>
             </div>
             <a
@@ -304,7 +304,7 @@ export function SocialMedia() {
               href={socialLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-vernon-500 transition-colors hover:text-vernon-900"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-500 transition-colors hover:text-brand-900"
             >
               See all 790+ posts on Instagram
               <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -357,7 +357,7 @@ export function SocialMedia() {
           <PlatformCard
             index={2}
             href={socialLinks.google}
-            gradient="bg-gradient-to-br from-vernon-800 to-vernon-900"
+            gradient="bg-gradient-to-br from-brand-800 to-brand-900"
             icon={
               <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
@@ -382,7 +382,7 @@ export function SocialMedia() {
           <PlatformCard
             index={3}
             href={socialLinks.practo}
-            gradient="bg-gradient-to-br from-clinical-600 to-clinical-700"
+            gradient="bg-gradient-to-br from-earth-600 to-earth-700"
             icon={
               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
@@ -405,7 +405,7 @@ export function SocialMedia() {
           initial={{ opacity: 0, y: 20 }}
           animate={reviewBarInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
-          className="mt-8 flex items-center justify-between rounded-xl border border-vernon-100 bg-white p-4 shadow-sm"
+          className="mt-8 flex items-center justify-between rounded-xl border border-brand-100 bg-white p-4 shadow-sm"
         >
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-0.5">
@@ -416,15 +416,15 @@ export function SocialMedia() {
               ))}
             </div>
             <div>
-              <p className="text-sm font-medium text-vernon-900">4.9 on Google Reviews</p>
-              <p className="text-xs text-vernon-400">3,400+ verified patient reviews — among the highest rated in Hyderabad</p>
+              <p className="text-sm font-medium text-brand-900">4.9 on Google Reviews</p>
+              <p className="text-xs text-brand-400">3,400+ verified patient reviews — among the highest rated in Hyderabad</p>
             </div>
           </div>
           <a
             href={socialLinks.google}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 rounded-full bg-vernon-900 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-vernon-800"
+            className="flex-shrink-0 rounded-full bg-brand-900 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-brand-800"
           >
             Read Reviews
           </a>

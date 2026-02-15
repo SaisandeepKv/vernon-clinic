@@ -420,7 +420,7 @@ interface ScrollProgressProps {
 
 export function ScrollProgress({
   className = '',
-  color = 'bg-clinical-600',
+  color = 'bg-earth-600',
 }: ScrollProgressProps) {
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
@@ -593,7 +593,7 @@ export function SectionDivider({ className = '' }: { className?: string }) {
   return (
     <div ref={ref} className={`relative py-1 ${className}`}>
       <motion.div
-        className="mx-auto h-px w-full max-w-4xl bg-gradient-to-r from-transparent via-vernon-200 to-transparent"
+        className="mx-auto h-px w-full max-w-4xl bg-gradient-to-r from-transparent via-brand-200 to-transparent"
         style={{ scaleX }}
       />
     </div>

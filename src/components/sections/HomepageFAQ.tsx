@@ -49,10 +49,10 @@ function FAQItem({ faq, index }: { faq: typeof faqs[number]; index: number }) {
       }}
     >
       <details className="group">
-        <summary className="flex cursor-pointer items-center justify-between py-5 text-left text-base font-medium text-vernon-900 transition-colors hover:text-clinical-700">
+        <summary className="flex cursor-pointer items-center justify-between py-5 text-left text-base font-medium text-brand-900 transition-colors hover:text-earth-700">
           <span className="pr-4">{faq.question}</span>
           <svg
-            className="h-5 w-5 flex-shrink-0 text-vernon-400 transition-transform duration-200 group-open:rotate-45"
+            className="h-5 w-5 flex-shrink-0 text-brand-400 transition-transform duration-200 group-open:rotate-45"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
@@ -61,7 +61,7 @@ function FAQItem({ faq, index }: { faq: typeof faqs[number]; index: number }) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
         </summary>
-        <div className="pb-5 text-sm leading-relaxed text-vernon-600">
+        <div className="pb-5 text-sm leading-relaxed text-brand-600">
           {faq.answer}
         </div>
       </details>
@@ -87,7 +87,7 @@ export function HomepageFAQ() {
   }
 
   return (
-    <section className="border-t border-vernon-100 bg-vernon-50/50 py-20 lg:py-28">
+    <section className="border-t border-brand-100 bg-brand-50/50 py-20 lg:py-28">
       <SchemaOrg schema={faqSchema} />
       <div className="section-max-width section-padding">
         <div className="mx-auto max-w-3xl">
@@ -118,7 +118,7 @@ export function HomepageFAQ() {
             </motion.p>
           </div>
 
-          <div className="mt-12 divide-y divide-vernon-200">
+          <div className="mt-12 divide-y divide-brand-200">
             {faqs.map((faq, index) => (
               <FAQItem key={faq.question} faq={faq} index={index} />
             ))}
@@ -130,7 +130,7 @@ export function HomepageFAQ() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-8 text-center"
           >
-            <Link href="/faq" className="btn-ghost text-clinical-600 hover:text-clinical-700">
+            <Link href="/faq" className="btn-ghost text-earth-600 hover:text-earth-700">
               View all FAQs
               <svg className="ml-1 inline h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

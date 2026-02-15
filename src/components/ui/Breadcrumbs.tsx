@@ -18,14 +18,14 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
           {allItems.map((item, index) => (
             <li key={item.href} className="flex items-center gap-1.5">
               {index > 0 && (
-                <svg className="h-3.5 w-3.5 text-vernon-300" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <svg className="h-3.5 w-3.5 text-brand-300" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
               )}
               {index === allItems.length - 1 ? (
-                <span className="text-vernon-500">{item.name}</span>
+                <span className="text-brand-500">{item.name}</span>
               ) : (
-                <Link href={item.href} className="text-vernon-400 hover:text-vernon-700 transition-colors">
+                <Link href={item.href} className="text-brand-400 hover:text-brand-700 transition-colors">
                   {item.name}
                 </Link>
               )}

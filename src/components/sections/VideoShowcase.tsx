@@ -12,11 +12,11 @@ export function VideoShowcase() {
   const isInView = useInView(headingRef, { once: true, margin: '-50px' })
 
   return (
-    <section className="relative overflow-hidden bg-vernon-950 py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-brand-950 py-20 lg:py-28">
       {/* Mesh gradient background */}
       <div className="absolute inset-0">
         <div className="mesh-blob-1 absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-bl from-red-600/5 to-transparent blur-3xl" />
-        <div className="mesh-blob-3 absolute -left-20 bottom-0 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-clinical-600/5 to-transparent blur-3xl" />
+        <div className="mesh-blob-3 absolute -left-20 bottom-0 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-earth-600/5 to-transparent blur-3xl" />
       </div>
       <div className="noise-overlay absolute inset-0" />
 
@@ -27,7 +27,7 @@ export function VideoShowcase() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-xs font-semibold uppercase tracking-widest text-clinical-400"
+              className="text-xs font-semibold uppercase tracking-widest text-earth-400"
             >
               Watch & Learn
             </motion.span>
@@ -43,7 +43,7 @@ export function VideoShowcase() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-3 text-base text-vernon-400"
+              className="mt-3 text-base text-brand-400"
             >
               Educational videos explaining treatments, procedures, and skincare
               — directly from our clinic.
@@ -73,7 +73,7 @@ export function VideoShowcase() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <div className="relative aspect-video overflow-hidden rounded-xl bg-black shadow-2xl shadow-black/50">
+            <div className="relative aspect-video overflow-hidden rounded-2xl bg-black shadow-2xl shadow-black/50">
               {isPlaying ? (
                 <iframe
                   src={`https://www.youtube.com/embed/${activeVideo.id}?rel=0&modestbranding=1&autoplay=1`}
@@ -114,7 +114,7 @@ export function VideoShowcase() {
             transition={{ duration: 0.7, delay: 0.35 }}
             className="flex flex-col gap-3"
           >
-            <p className="text-xs font-semibold uppercase tracking-widest text-vernon-500">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand-500">
               Featured Videos
             </p>
             {featured.map((video, index) => (
@@ -131,7 +131,7 @@ export function VideoShowcase() {
                 }`}
               >
                 {/* Thumbnail */}
-                <div className="relative aspect-video w-28 flex-shrink-0 overflow-hidden rounded-md bg-vernon-800">
+                <div className="relative aspect-video w-28 flex-shrink-0 overflow-hidden rounded-md bg-brand-800">
                   <img
                     src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
                     alt={video.title}
@@ -146,11 +146,11 @@ export function VideoShowcase() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className={`text-sm font-medium leading-snug ${
-                    activeVideo.id === video.id ? 'text-white' : 'text-vernon-300 group-hover:text-white'
+                    activeVideo.id === video.id ? 'text-white' : 'text-brand-300 group-hover:text-white'
                   }`}>
                     {video.title}
                   </p>
-                  <p className="mt-1 text-xs text-vernon-500">
+                  <p className="mt-1 text-xs text-brand-500">
                     {video.language === 'telugu' ? 'Telugu' : video.language === 'bilingual' ? 'Telugu & English' : 'English'}
                   </p>
                 </div>

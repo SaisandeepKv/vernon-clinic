@@ -109,20 +109,20 @@ export default async function LocationPage({ params }: PageProps) {
               <StaggerReveal className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2" staggerDelay={0.12} baseDelay={0.15}>
                 <StaggerItem>
                   <div className="card-flat">
-                    <h3 className="text-sm font-semibold text-vernon-400">Address</h3>
-                    <p className="mt-2 text-sm text-vernon-700">{location.address}</p>
+                    <h3 className="text-sm font-semibold text-brand-400">Address</h3>
+                    <p className="mt-2 text-sm text-brand-700">{location.address}</p>
                   </div>
                 </StaggerItem>
                 <StaggerItem>
                   <div className="card-flat">
-                    <h3 className="text-sm font-semibold text-vernon-400">Contact</h3>
+                    <h3 className="text-sm font-semibold text-brand-400">Contact</h3>
                     <p className="mt-2">
-                      <a href={`tel:${location.phone}`} className="text-sm text-clinical-600 hover:underline">
+                      <a href={`tel:${location.phone}`} className="text-sm text-earth-600 hover:underline">
                         {location.phone}
                       </a>
                     </p>
                     <p className="mt-1">
-                      <a href={`mailto:${location.email}`} className="text-sm text-vernon-600 hover:underline">
+                      <a href={`mailto:${location.email}`} className="text-sm text-brand-600 hover:underline">
                         {location.email}
                       </a>
                     </p>
@@ -137,9 +137,9 @@ export default async function LocationPage({ params }: PageProps) {
               <StaggerReveal className="mt-4 space-y-2" staggerDelay={0.08}>
                 {location.timings.map((t) => (
                   <StaggerItem key={t.days}>
-                    <div className="flex items-center justify-between rounded-lg bg-vernon-50 px-4 py-3">
-                      <span className="text-sm text-vernon-600">{t.days}</span>
-                      <span className="text-sm font-medium text-vernon-900">{t.hours}</span>
+                    <div className="flex items-center justify-between rounded-lg bg-brand-50 px-4 py-3">
+                      <span className="text-sm text-brand-600">{t.days}</span>
+                      <span className="text-sm font-medium text-brand-900">{t.hours}</span>
                     </div>
                   </StaggerItem>
                 ))}
@@ -152,11 +152,11 @@ export default async function LocationPage({ params }: PageProps) {
               <StaggerReveal className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2" staggerDelay={0.06}>
                 {location.services.map((service) => (
                   <StaggerItem key={service}>
-                    <div className="flex items-center gap-2 rounded-lg border border-vernon-100 px-4 py-3">
-                      <svg className="h-4 w-4 flex-shrink-0 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <div className="flex items-center gap-2 rounded-lg border border-brand-100 px-4 py-3">
+                      <svg className="h-4 w-4 flex-shrink-0 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      <span className="text-sm text-vernon-700">{service}</span>
+                      <span className="text-sm text-brand-700">{service}</span>
                     </div>
                   </StaggerItem>
                 ))}
@@ -170,10 +170,10 @@ export default async function LocationPage({ params }: PageProps) {
                 {content.features.map((feature) => (
                   <StaggerItem key={feature}>
                     <div className="flex items-center gap-2">
-                      <svg className="h-4 w-4 flex-shrink-0 text-vernon-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="h-4 w-4 flex-shrink-0 text-brand-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
-                      <span className="text-sm text-vernon-600">{feature}</span>
+                      <span className="text-sm text-brand-600">{feature}</span>
                     </div>
                   </StaggerItem>
                 ))}
@@ -182,7 +182,7 @@ export default async function LocationPage({ params }: PageProps) {
               {/* Map */}
               <ScrollReveal className="mt-10">
                 <h2 className="heading-4">Find Us</h2>
-                <div className="mt-4 aspect-[16/9] overflow-hidden rounded-xl border border-vernon-100">
+                <div className="mt-4 aspect-[16/9] overflow-hidden rounded-xl border border-brand-100">
                   <iframe
                     src={location.mapUrl}
                     width="100%"
@@ -202,8 +202,8 @@ export default async function LocationPage({ params }: PageProps) {
               <BookingCTA location={location.name} variant="floating" />
 
               {/* Other locations */}
-              <div className="mt-8 rounded-xl border border-vernon-100 bg-white p-6">
-                <h3 className="text-sm font-semibold text-vernon-400">Other Locations</h3>
+              <div className="mt-8 rounded-xl border border-brand-100 bg-white p-6">
+                <h3 className="text-sm font-semibold text-brand-400">Other Locations</h3>
                 <div className="mt-4 space-y-3">
                   {locations
                     .filter((l) => l.id !== location.id)
@@ -211,10 +211,10 @@ export default async function LocationPage({ params }: PageProps) {
                       <Link
                         key={l.id}
                         href={`/locations/${l.slug}`}
-                        className="block rounded-lg bg-vernon-50 px-4 py-3 transition-colors hover:bg-vernon-100"
+                        className="block rounded-lg bg-brand-50 px-4 py-3 transition-colors hover:bg-brand-100"
                       >
-                        <p className="text-sm font-medium text-vernon-900">Vernon — {l.name}</p>
-                        <p className="mt-0.5 text-xs text-vernon-400 line-clamp-1">{l.address}</p>
+                        <p className="text-sm font-medium text-brand-900">Vernon — {l.name}</p>
+                        <p className="mt-0.5 text-xs text-brand-400 line-clamp-1">{l.address}</p>
                       </Link>
                     ))}
                 </div>

@@ -97,7 +97,7 @@ export function TreatmentFinderQuiz() {
     return (
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-24 left-6 z-40 hidden items-center gap-2 rounded-full bg-vernon-900 px-4 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:bg-vernon-800 hover:shadow-xl lg:flex"
+        className="fixed bottom-24 left-6 z-40 hidden items-center gap-2 rounded-full bg-brand-900 px-4 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:bg-brand-800 hover:shadow-xl lg:flex"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 6, duration: 0.5 }}
@@ -114,12 +114,12 @@ export function TreatmentFinderQuiz() {
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      className="fixed bottom-24 left-6 z-40 hidden w-[380px] overflow-hidden rounded-2xl border border-vernon-200 bg-white shadow-2xl lg:block"
+      className="fixed bottom-24 left-6 z-40 hidden w-[380px] overflow-hidden rounded-2xl border border-brand-200 bg-white shadow-2xl lg:block"
     >
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-vernon-100 bg-vernon-50 px-5 py-3">
-        <h3 className="text-sm font-medium text-vernon-900">Treatment Finder</h3>
-        <button onClick={() => setIsOpen(false)} className="text-vernon-400 hover:text-vernon-600">
+      <div className="flex items-center justify-between border-b border-brand-100 bg-brand-50 px-5 py-3">
+        <h3 className="text-sm font-medium text-brand-900">Treatment Finder</h3>
+        <button onClick={() => setIsOpen(false)} className="text-brand-400 hover:text-brand-600">
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -131,7 +131,7 @@ export function TreatmentFinderQuiz() {
         <div className="mb-4 flex gap-1">
           {questions.map((_, i) => (
             <div key={i} className={`h-1 flex-1 rounded-full transition-colors ${
-              i <= currentQ ? 'bg-clinical-500' : 'bg-vernon-100'
+              i <= currentQ ? 'bg-earth-500' : 'bg-brand-100'
             }`} />
           ))}
         </div>
@@ -145,13 +145,13 @@ export function TreatmentFinderQuiz() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.25 }}
             >
-              <p className="text-sm font-medium text-vernon-900">{questions[currentQ].question}</p>
+              <p className="text-sm font-medium text-brand-900">{questions[currentQ].question}</p>
               <div className="mt-3 space-y-2">
                 {questions[currentQ].options.map((opt) => (
                   <button
                     key={opt.value}
                     onClick={() => handleAnswer(opt.value)}
-                    className="w-full rounded-lg border border-vernon-200 px-4 py-2.5 text-left text-sm text-vernon-700 transition-all hover:border-clinical-300 hover:bg-clinical-50"
+                    className="w-full rounded-lg border border-brand-200 px-4 py-2.5 text-left text-sm text-brand-700 transition-all hover:border-earth-300 hover:bg-earth-50"
                   >
                     {opt.label}
                   </button>
@@ -165,14 +165,14 @@ export function TreatmentFinderQuiz() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="rounded-xl bg-clinical-50 p-4">
-                <p className="text-xs font-medium uppercase tracking-wider text-clinical-600">Recommended</p>
-                <h4 className="mt-1 font-display text-lg text-vernon-900">{result.title}</h4>
-                <p className="mt-2 text-sm text-vernon-600">{result.description}</p>
+              <div className="rounded-xl bg-earth-50 p-4">
+                <p className="text-xs font-medium uppercase tracking-wider text-earth-600">Recommended</p>
+                <h4 className="mt-1 font-display text-lg text-brand-900">{result.title}</h4>
+                <p className="mt-2 text-sm text-brand-600">{result.description}</p>
                 <div className="mt-3 space-y-1">
                   {result.treatments.map((t) => (
-                    <div key={t} className="flex items-center gap-1.5 text-xs text-vernon-500">
-                      <svg className="h-3 w-3 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <div key={t} className="flex items-center gap-1.5 text-xs text-brand-500">
+                      <svg className="h-3 w-3 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                       {t}
@@ -184,7 +184,7 @@ export function TreatmentFinderQuiz() {
                 <Link href={result.link} className="btn-primary flex-1 text-center text-sm">
                   View Treatments
                 </Link>
-                <button onClick={reset} className="rounded-lg border border-vernon-200 px-3 py-2 text-sm text-vernon-600 hover:bg-vernon-50">
+                <button onClick={reset} className="rounded-lg border border-brand-200 px-3 py-2 text-sm text-brand-600 hover:bg-brand-50">
                   Retake
                 </button>
               </div>

@@ -97,20 +97,20 @@ export function TreatmentComparison() {
           <table className="w-full min-w-[640px] border-collapse">
             <thead>
               <tr>
-                <th className="border-b border-vernon-200 pb-4 pr-6 text-left text-sm font-medium text-vernon-500">
+                <th className="border-b border-brand-200 pb-4 pr-6 text-left text-sm font-medium text-brand-500">
                   Feature
                 </th>
-                <th className="border-b border-vernon-200 pb-4 px-4 text-left text-sm font-medium text-vernon-900">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-clinical-50 px-3 py-1 text-clinical-700">
+                <th className="border-b border-brand-200 pb-4 px-4 text-left text-sm font-medium text-brand-900">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-earth-50 px-3 py-1 text-earth-700">
                     FUE
                   </span>
                 </th>
-                <th className="border-b border-vernon-200 pb-4 px-4 text-left text-sm font-medium text-vernon-900">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-vernon-100 px-3 py-1 text-vernon-700">
+                <th className="border-b border-brand-200 pb-4 px-4 text-left text-sm font-medium text-brand-900">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-100 px-3 py-1 text-brand-700">
                     FUT
                   </span>
                 </th>
-                <th className="border-b border-vernon-200 pb-4 px-4 text-left text-sm font-medium text-vernon-900">
+                <th className="border-b border-brand-200 pb-4 px-4 text-left text-sm font-medium text-brand-900">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-amber-700">
                     DHI
                   </span>
@@ -126,16 +126,16 @@ export function TreatmentComparison() {
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
                   className="group"
                 >
-                  <td className="border-b border-vernon-100 py-4 pr-6 text-sm font-medium text-vernon-700">
+                  <td className="border-b border-brand-100 py-4 pr-6 text-sm font-medium text-brand-700">
                     {row.feature}
                   </td>
-                  <td className="border-b border-vernon-100 py-4 px-4 text-sm text-vernon-600 group-hover:text-vernon-900 transition-colors">
+                  <td className="border-b border-brand-100 py-4 px-4 text-sm text-brand-600 group-hover:text-brand-900 transition-colors">
                     {row.fue}
                   </td>
-                  <td className="border-b border-vernon-100 py-4 px-4 text-sm text-vernon-600 group-hover:text-vernon-900 transition-colors">
+                  <td className="border-b border-brand-100 py-4 px-4 text-sm text-brand-600 group-hover:text-brand-900 transition-colors">
                     {row.fut}
                   </td>
-                  <td className="border-b border-vernon-100 py-4 px-4 text-sm text-vernon-600 group-hover:text-vernon-900 transition-colors">
+                  <td className="border-b border-brand-100 py-4 px-4 text-sm text-brand-600 group-hover:text-brand-900 transition-colors">
                     {row.dhi}
                   </td>
                 </motion.tr>
@@ -148,10 +148,10 @@ export function TreatmentComparison() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="mt-6 text-center text-sm text-vernon-400"
+          className="mt-6 text-center text-sm text-brand-400"
         >
           The right technique is determined during consultation based on your specific needs.
-          <a href="/contact" className="ml-1 text-clinical-600 hover:underline">Book an assessment →</a>
+          <a href="/contact" className="ml-1 text-earth-600 hover:underline">Book an assessment →</a>
         </motion.p>
       </div>
     </section>

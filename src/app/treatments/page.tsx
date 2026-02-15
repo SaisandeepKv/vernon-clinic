@@ -23,7 +23,7 @@ export default function TreatmentsPage() {
           <ScrollReveal delay={0.1}>
             <h1 className="heading-1 mt-3 max-w-3xl">
               Surgeon-led dermatology{' '}
-              <span className="italic text-vernon-600">across every discipline</span>
+              <span className="italic text-brand-600">across every discipline</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -44,7 +44,7 @@ export default function TreatmentsPage() {
         return (
           <section
             key={category.id}
-            className="border-t border-vernon-100 py-16"
+            className="border-t border-brand-100 py-16"
           >
             <div className="section-max-width section-padding">
               <ScrollReveal>
@@ -71,10 +71,10 @@ export default function TreatmentsPage() {
                       href={`/treatments/${category.slug}/${treatment.slug}`}
                       className="group card flex h-full flex-col"
                     >
-                      <h3 className="text-lg font-medium text-vernon-900 group-hover:text-clinical-700">
+                      <h3 className="text-lg font-medium text-brand-900 group-hover:text-earth-700">
                         {treatment.name}
                       </h3>
-                      <p className="mt-2 flex-1 text-sm text-vernon-500">
+                      <p className="mt-2 flex-1 text-sm text-brand-500">
                         {treatment.shortDescription}
                       </p>
                       <div className="mt-4 flex flex-wrap gap-2">
@@ -82,7 +82,7 @@ export default function TreatmentsPage() {
                         <span className="badge">{treatment.sessions}</span>
                         <span className="badge">{treatment.downtime} downtime</span>
                       </div>
-                      <div className="mt-4 flex items-center text-sm font-medium text-clinical-600">
+                      <div className="mt-4 flex items-center text-sm font-medium text-earth-600">
                         Learn more
                         <svg className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

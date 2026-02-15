@@ -106,7 +106,7 @@ function StarRating({ rating }: { rating: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          className={`h-4 w-4 ${i < rating ? 'text-amber-400' : 'text-vernon-200'}`}
+          className={`h-4 w-4 ${i < rating ? 'text-amber-400' : 'text-brand-200'}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -119,30 +119,30 @@ function StarRating({ rating }: { rating: number }) {
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="flex w-[340px] flex-shrink-0 flex-col rounded-2xl border border-vernon-100/80 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 sm:w-[380px]">
+    <div className="flex w-[340px] flex-shrink-0 flex-col rounded-3xl border border-brand-100/80 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 sm:w-[380px]">
       <div className="flex items-center justify-between">
         <StarRating rating={review.rating} />
         {review.treatment_category && (
-          <span className="rounded-full bg-clinical-50 px-2 py-0.5 text-2xs font-medium text-clinical-700">
+          <span className="rounded-full bg-earth-50 px-2 py-0.5 text-2xs font-medium text-earth-700">
             {review.treatment_category}
           </span>
         )}
       </div>
-      <p className="mt-4 flex-1 text-sm leading-relaxed text-vernon-600 line-clamp-4">
+      <p className="mt-4 flex-1 text-sm leading-relaxed text-brand-600 line-clamp-4">
         &ldquo;{review.text}&rdquo;
       </p>
-      <div className="mt-4 flex items-center gap-3 border-t border-vernon-50 pt-4">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-vernon-100 text-sm font-medium text-vernon-600">
+      <div className="mt-4 flex items-center gap-3 border-t border-brand-50 pt-4">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-100 text-sm font-medium text-brand-600">
           {review.author_name.charAt(0)}
         </div>
         <div>
-          <p className="text-sm font-medium text-vernon-900">{review.author_name}</p>
+          <p className="text-sm font-medium text-brand-900">{review.author_name}</p>
           {review.location && (
-            <p className="text-xs text-vernon-400">{review.location} branch</p>
+            <p className="text-xs text-brand-400">{review.location} branch</p>
           )}
         </div>
         {/* Google icon */}
-        <svg className="ml-auto h-5 w-5 text-vernon-300" viewBox="0 0 24 24" fill="currentColor">
+        <svg className="ml-auto h-5 w-5 text-brand-300" viewBox="0 0 24 24" fill="currentColor">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
@@ -226,24 +226,24 @@ export function GoogleReviews() {
               <div className="flex items-center gap-1">
                 <StarRating rating={5} />
               </div>
-              <p className="mt-1 text-xs font-medium text-vernon-600">4.9</p>
-              <p className="text-xs text-vernon-400">Banjara Hills (598)</p>
+              <p className="mt-1 text-xs font-medium text-brand-600">4.9</p>
+              <p className="text-xs text-brand-400">Banjara Hills (598)</p>
             </div>
-            <div className="h-8 w-px bg-vernon-200" />
+            <div className="h-8 w-px bg-brand-200" />
             <div className="text-center">
               <div className="flex items-center gap-1">
                 <StarRating rating={5} />
               </div>
-              <p className="mt-1 text-xs font-medium text-vernon-600">4.7</p>
-              <p className="text-xs text-vernon-400">Manikonda (2,206)</p>
+              <p className="mt-1 text-xs font-medium text-brand-600">4.7</p>
+              <p className="text-xs text-brand-400">Manikonda (2,206)</p>
             </div>
-            <div className="h-8 w-px bg-vernon-200" />
+            <div className="h-8 w-px bg-brand-200" />
             <div className="text-center">
               <div className="flex items-center gap-1">
                 <StarRating rating={5} />
               </div>
-              <p className="mt-1 text-xs font-medium text-vernon-600">4.9</p>
-              <p className="text-xs text-vernon-400">Gachibowli (441)</p>
+              <p className="mt-1 text-xs font-medium text-brand-600">4.9</p>
+              <p className="text-xs text-brand-400">Gachibowli (441)</p>
             </div>
           </motion.div>
         </div>
@@ -260,8 +260,8 @@ export function GoogleReviews() {
               onClick={() => setActiveCategory(cat)}
               className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
                 activeCategory === cat
-                  ? 'bg-vernon-900 text-white shadow-sm'
-                  : 'bg-vernon-50 text-vernon-500 hover:bg-vernon-100 hover:text-vernon-700'
+                  ? 'bg-brand-900 text-white shadow-sm'
+                  : 'bg-brand-50 text-brand-500 hover:bg-brand-100 hover:text-brand-700'
               }`}
             >
               {cat}
@@ -280,8 +280,8 @@ export function GoogleReviews() {
         onTouchEnd={() => setIsPaused(false)}
       >
         {/* Fade edges */}
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-ivory-50 to-transparent sm:w-24" />
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-ivory-50 to-transparent sm:w-24" />
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-sand-50 to-transparent sm:w-24" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-sand-50 to-transparent sm:w-24" />
 
         <div
           className="marquee-track gap-4 py-2"
@@ -308,7 +308,7 @@ export function GoogleReviews() {
             href="https://www.google.com/maps/place/Vernon+Skin+and+Hair+Clinic"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-ghost text-clinical-600 hover:text-clinical-700"
+            className="btn-ghost text-earth-600 hover:text-earth-700"
           >
             View all on Google
             <svg className="ml-1 inline h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">

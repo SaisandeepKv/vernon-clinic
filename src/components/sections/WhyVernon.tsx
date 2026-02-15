@@ -62,8 +62,8 @@ const differentiators = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
       </svg>
     ),
-    gradient: 'from-clinical-500/5 to-transparent',
-    iconColor: 'text-clinical-600 bg-clinical-50',
+    gradient: 'from-earth-500/5 to-transparent',
+    iconColor: 'text-earth-600 bg-earth-50',
   },
   {
     title: 'Three Convenient Locations',
@@ -87,8 +87,8 @@ export function WhyVernon() {
   return (
     <section className="relative overflow-hidden py-20 lg:py-28">
       {/* Background accents */}
-      <div className="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-clinical-100/30 to-transparent blur-3xl" />
-      <div className="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-gradient-to-bl from-vernon-100/20 to-transparent blur-3xl" />
+      <div className="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-earth-100/30 to-transparent blur-3xl" />
+      <div className="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-gradient-to-bl from-brand-100/20 to-transparent blur-3xl" />
 
       <div className="section-max-width section-padding relative">
         <div ref={headingRef} className="max-w-2xl">
@@ -161,7 +161,7 @@ function CardItem({
       }}
       onMouseMove={handleMouseMove}
     >
-    <TiltCard className="group relative h-full overflow-hidden rounded-2xl border border-vernon-100/60 bg-white p-6 transition-all duration-400 hover:border-vernon-200 card-elevated" tiltAmount={4}>
+    <TiltCard className="group relative h-full overflow-hidden rounded-3xl border border-brand-100/60 bg-white p-6 transition-all duration-400 hover:border-brand-200 card-elevated" tiltAmount={4}>
       {/* Cursor-following gradient accent on hover */}
       <div
         ref={gradientRef}
@@ -174,20 +174,20 @@ function CardItem({
       <div className="relative">
         <div className="flex items-start gap-4">
           {/* Number */}
-          <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-vernon-50 font-mono text-xs font-bold text-vernon-400">
+          <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-brand-50 font-mono text-xs font-bold text-brand-400">
             {String(index + 1).padStart(2, '0')}
           </span>
 
           {/* Icon */}
-          <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl ${item.iconColor} transition-transform duration-300 group-hover:scale-110`}>
+          <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl ${item.iconColor} transition-transform duration-300 group-hover:scale-110`}>
             {item.icon}
           </div>
         </div>
 
-        <h3 className="mt-5 text-lg font-medium text-vernon-900">
+        <h3 className="mt-5 text-lg font-medium text-brand-900">
           {item.title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-vernon-500">
+        <p className="mt-2 text-sm leading-relaxed text-brand-500">
           {item.description}
         </p>
       </div>

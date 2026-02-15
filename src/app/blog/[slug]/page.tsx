@@ -110,24 +110,24 @@ export default async function BlogPostPage({ params }: PageProps) {
               <ScrollReveal>
                 <div className="flex items-center gap-3">
                   <span className="badge-clinical">{post.category}</span>
-                  <span className="text-xs text-vernon-400">{post.readTime}</span>
+                  <span className="text-xs text-brand-400">{post.readTime}</span>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.1}>
-                <h1 className="mt-4 font-display text-3xl font-light leading-tight text-vernon-900 sm:text-4xl lg:text-5xl">
+                <h1 className="mt-4 font-display text-3xl font-light leading-tight text-brand-900 sm:text-4xl lg:text-5xl">
                   {post.title}
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <div className="mt-6 flex items-center gap-4 border-b border-vernon-100 pb-6">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-clinical-100 text-sm font-medium text-clinical-700">
+                <div className="mt-6 flex items-center gap-4 border-b border-brand-100 pb-6">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-earth-100 text-sm font-medium text-earth-700">
                     BR
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-vernon-900">{post.author}</p>
-                    <p className="text-xs text-vernon-400">
+                    <p className="text-sm font-medium text-brand-900">{post.author}</p>
+                    <p className="text-xs text-brand-400">
                       {new Date(post.date).toLocaleDateString('en-IN', {
                         year: 'numeric',
                         month: 'long',
@@ -199,9 +199,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                       <div key={index} className="my-6 overflow-x-auto">
                         <table className="w-full border-collapse text-sm">
                           <thead>
-                            <tr className="border-b border-vernon-200 bg-vernon-50">
+                            <tr className="border-b border-brand-200 bg-brand-50">
                               {headers.map((h, i) => (
-                                <th key={i} className="px-4 py-2 text-left font-medium text-vernon-900">
+                                <th key={i} className="px-4 py-2 text-left font-medium text-brand-900">
                                   {h}
                                 </th>
                               ))}
@@ -209,9 +209,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                           </thead>
                           <tbody>
                             {rows.map((row, ri) => (
-                              <tr key={ri} className="border-b border-vernon-100">
+                              <tr key={ri} className="border-b border-brand-100">
                                 {row.map((cell, ci) => (
-                                  <td key={ci} className="px-4 py-2 text-vernon-700">
+                                  <td key={ci} className="px-4 py-2 text-brand-700">
                                     {renderInline(cell)}
                                   </td>
                                 ))}
@@ -231,21 +231,21 @@ export default async function BlogPostPage({ params }: PageProps) {
 
               {/* Author bio */}
               <ScrollReveal className="mt-12">
-              <div className="rounded-xl border border-vernon-100 bg-vernon-50/50 p-6">
+              <div className="rounded-xl border border-brand-100 bg-brand-50/50 p-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-clinical-100 text-sm font-medium text-clinical-700">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-earth-100 text-sm font-medium text-earth-700">
                     BR
                   </div>
                   <div>
-                    <p className="font-medium text-vernon-900">Dr. R. Brahmananda Reddy</p>
-                    <p className="mt-1 text-sm text-vernon-500">
+                    <p className="font-medium text-brand-900">Dr. R. Brahmananda Reddy</p>
+                    <p className="mt-1 text-sm text-brand-500">
                       MBBS, MSc Dermatology (UK), Diploma Aesthetic Medicine, Fellowship ILAMED (Germany).
                       Founder & Chief Operating Surgeon, Vernon Skin and Hair Clinic.
                       ISHRS member and official Menarini filler trainer.
                     </p>
                     <Link
                       href="/about/dr-brahmananda-reddy"
-                      className="mt-2 inline-block text-sm font-medium text-clinical-600 hover:text-clinical-700"
+                      className="mt-2 inline-block text-sm font-medium text-earth-600 hover:text-earth-700"
                     >
                       View full profile &rarr;
                     </Link>
@@ -267,7 +267,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       <StaggerItem key={related.slug}>
                         <Link
                           href={`/blog/${related.slug}`}
-                          className="group block overflow-hidden rounded-lg border border-vernon-100 transition-shadow hover:shadow-md"
+                          className="group block overflow-hidden rounded-lg border border-brand-100 transition-shadow hover:shadow-md"
                         >
                           {related.image && (
                             <div className="relative h-[120px] w-full overflow-hidden">
@@ -281,13 +281,13 @@ export default async function BlogPostPage({ params }: PageProps) {
                             </div>
                           )}
                           <div className="p-4">
-                          <span className="text-2xs font-medium uppercase tracking-wider text-clinical-600">
+                          <span className="text-2xs font-medium uppercase tracking-wider text-earth-600">
                             {related.category}
                           </span>
-                          <h3 className="mt-1 text-sm font-medium text-vernon-900 group-hover:text-clinical-700">
+                          <h3 className="mt-1 text-sm font-medium text-brand-900 group-hover:text-earth-700">
                             {related.title}
                           </h3>
-                          <p className="mt-1 text-xs text-vernon-400">{related.readTime}</p>
+                          <p className="mt-1 text-xs text-brand-400">{related.readTime}</p>
                           </div>
                         </Link>
                       </StaggerItem>

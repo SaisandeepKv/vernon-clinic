@@ -18,11 +18,11 @@ export function DoctorSection() {
   const imageY = useTransform(scrollYProgress, [0, 1], [40, -40])
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-vernon-950 py-20 lg:py-28">
+    <section ref={sectionRef} className="relative overflow-hidden bg-brand-950 py-20 lg:py-28">
       {/* Mesh gradient background */}
       <div className="absolute inset-0">
-        <div className="mesh-blob-1 absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-bl from-clinical-600/10 to-transparent blur-3xl" />
-        <div className="mesh-blob-2 absolute -left-20 bottom-0 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-vernon-700/10 to-transparent blur-3xl" />
+        <div className="mesh-blob-1 absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-bl from-earth-600/10 to-transparent blur-3xl" />
+        <div className="mesh-blob-2 absolute -left-20 bottom-0 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-brand-700/10 to-transparent blur-3xl" />
       </div>
       <div className="noise-overlay absolute inset-0" />
 
@@ -46,7 +46,7 @@ export function DoctorSection() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-vernon-950/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-transparent" />
             </motion.div>
 
             {/* Credential strips */}
@@ -61,7 +61,7 @@ export function DoctorSection() {
                 { label: 'MS Gen. Surgery', sub: 'Surgical Background' },
                 { label: 'Board Certified', sub: 'Aesthetic Medicine' },
               ].map((cred) => (
-                <div key={cred.label} className="rounded-xl border border-white/10 bg-white/10 p-3 backdrop-blur-xl">
+                <div key={cred.label} className="rounded-2xl border border-white/10 bg-white/10 p-3 backdrop-blur-xl">
                   <p className="text-xs font-medium text-white">{cred.label}</p>
                   <p className="mt-0.5 text-2xs text-white/50">{cred.sub}</p>
                 </div>
@@ -75,7 +75,7 @@ export function DoctorSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="text-xs font-medium uppercase tracking-widest text-clinical-400"
+              className="text-xs font-medium uppercase tracking-widest text-earth-400"
             >
               The Founder
             </motion.span>
@@ -91,7 +91,7 @@ export function DoctorSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-2 text-lg text-clinical-400"
+              className="mt-2 text-lg text-earth-400"
             >
               {primaryDoctor.title}
             </motion.p>
@@ -100,7 +100,7 @@ export function DoctorSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 text-base leading-relaxed text-vernon-400"
+              className="mt-6 text-base leading-relaxed text-brand-400"
             >
               With a rare combination of surgical training (MS General Surgery)
               and UK-certified dermatology, Dr. Reddy doesn&apos;t just treat skin —
@@ -113,7 +113,7 @@ export function DoctorSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-4 text-base leading-relaxed text-vernon-400"
+              className="mt-4 text-base leading-relaxed text-brand-400"
             >
               As an official trainer for Menarini dermal fillers, Dr. Reddy
               teaches injection techniques to physicians across Malaysia,
@@ -127,15 +127,15 @@ export function DoctorSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-8 space-y-3"
             >
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-vernon-500">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-500">
                 Professional Memberships
               </h3>
               {primaryDoctor.memberships.map((m) => (
                 <div key={m} className="flex items-start gap-2">
-                  <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="text-sm text-vernon-300">{m}</span>
+                  <span className="text-sm text-brand-300">{m}</span>
                 </div>
               ))}
             </motion.div>
@@ -148,7 +148,7 @@ export function DoctorSection() {
               className="mt-8 flex flex-wrap gap-2"
             >
               {primaryDoctor.awards.map((award) => (
-                <div key={award.title} className="rounded-full border border-clinical-500/20 bg-clinical-500/10 px-3 py-1 text-xs font-medium text-clinical-300">
+                <div key={award.title} className="rounded-full border border-earth-500/20 bg-earth-500/10 px-3 py-1 text-xs font-medium text-earth-300">
                   {award.title} ({award.year})
                 </div>
               ))}
@@ -161,7 +161,7 @@ export function DoctorSection() {
             >
               <Link
                 href="/about/dr-brahmananda-reddy"
-                className="mt-8 inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white/25 hover:bg-white/10"
+                className="mt-8 inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white/25 hover:bg-white/10"
               >
                 Full Profile & Credentials
               </Link>

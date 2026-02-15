@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Newsreader, JetBrains_Mono } from 'next/font/google'
+import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -23,9 +23,9 @@ const inter = Inter({
   display: 'swap',
 })
 
-const newsreader = Newsreader({
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-newsreader',
+  variable: '--font-playfair',
   display: 'swap',
   style: ['normal', 'italic'],
 })
@@ -111,7 +111,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${newsreader.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
       <head>
         <SchemaOrg schema={generateMedicalOrganizationSchema(locations)} />
         <SchemaOrg schema={generateWebSiteSchema()} />

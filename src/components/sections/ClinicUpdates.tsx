@@ -12,9 +12,9 @@ interface Update {
 }
 
 const typeConfig = {
-  announcement: { bg: 'bg-clinical-600', icon: '📢' },
+  announcement: { bg: 'bg-earth-600', icon: '📢' },
   offer: { bg: 'bg-emerald-600', icon: '🎉' },
-  news: { bg: 'bg-vernon-800', icon: '📰' },
+  news: { bg: 'bg-brand-800', icon: '📰' },
   event: { bg: 'bg-indigo-600', icon: '📅' },
 }
 

@@ -76,26 +76,26 @@ function TechCard({ tech, index }: { tech: typeof technologies[number]; index: n
     >
       <Link
         href={tech.href}
-        className="group flex h-full flex-col rounded-2xl border border-vernon-800 bg-vernon-900/50 p-6 transition-all duration-300 hover:border-clinical-700 hover:bg-vernon-900 hover:-translate-y-1 hover:shadow-xl hover:shadow-clinical-500/5 lg:p-8"
+        className="group flex h-full flex-col rounded-3xl border border-brand-800 bg-brand-900/50 p-6 transition-all duration-300 hover:border-earth-700 hover:bg-brand-900 hover:-translate-y-1 hover:shadow-xl hover:shadow-earth-500/5 lg:p-8"
       >
         <div className="flex items-start justify-between">
-          <div className="rounded-xl bg-vernon-800 p-3 text-clinical-400 transition-all duration-300 group-hover:bg-clinical-900 group-hover:text-clinical-300 group-hover:scale-110">
+          <div className="rounded-2xl bg-brand-800 p-3 text-earth-400 transition-all duration-300 group-hover:bg-earth-900 group-hover:text-earth-300 group-hover:scale-110">
             {tech.icon}
           </div>
-          <span className="rounded-full border border-clinical-800 bg-clinical-950 px-2.5 py-1 text-2xs font-medium text-clinical-400">
+          <span className="rounded-full border border-earth-800 bg-earth-950 px-2.5 py-1 text-2xs font-medium text-earth-400">
             {tech.badge}
           </span>
         </div>
-        <h3 className="mt-5 text-xl font-medium text-white transition-colors group-hover:text-clinical-300">
+        <h3 className="mt-5 text-xl font-medium text-white transition-colors group-hover:text-earth-300">
           {tech.name}
         </h3>
-        <p className="mt-1 text-sm text-vernon-500">
+        <p className="mt-1 text-sm text-brand-500">
           {tech.category}
         </p>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-vernon-400">
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-brand-400">
           {tech.description}
         </p>
-        <div className="mt-4 flex items-center text-sm font-medium text-clinical-500 group-hover:text-clinical-400">
+        <div className="mt-4 flex items-center text-sm font-medium text-earth-500 group-hover:text-earth-400">
           Learn more
           <svg className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -111,11 +111,11 @@ export function TechnologyShowcase() {
   const isInView = useInView(headingRef, { once: true, margin: '-50px' })
 
   return (
-    <section className="relative overflow-hidden bg-vernon-950 py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-brand-950 py-20 lg:py-28">
       {/* Mesh gradient background */}
       <div className="absolute inset-0">
-        <div className="mesh-blob-2 absolute -left-40 top-20 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-clinical-600/8 to-transparent blur-3xl" />
-        <div className="mesh-blob-3 absolute -right-20 bottom-20 h-[400px] w-[400px] rounded-full bg-gradient-to-tl from-vernon-600/8 to-transparent blur-3xl" />
+        <div className="mesh-blob-2 absolute -left-40 top-20 h-[600px] w-[600px] rounded-full bg-gradient-to-br from-earth-600/8 to-transparent blur-3xl" />
+        <div className="mesh-blob-3 absolute -right-20 bottom-20 h-[400px] w-[400px] rounded-full bg-gradient-to-tl from-brand-600/8 to-transparent blur-3xl" />
       </div>
       <div className="noise-overlay absolute inset-0" />
 
@@ -125,7 +125,7 @@ export function TechnologyShowcase() {
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-xs font-semibold uppercase tracking-[0.2em] text-clinical-400"
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-earth-400"
           >
             Our Technology
           </motion.span>
@@ -142,7 +142,7 @@ export function TechnologyShowcase() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto mt-4 max-w-2xl text-base text-vernon-400"
+            className="mx-auto mt-4 max-w-2xl text-base text-brand-400"
           >
             Every device at Vernon is selected for safety on Fitzpatrick IV–VI skin types.
             We do not use generic settings — Dr. Reddy calibrates parameters for each patient.

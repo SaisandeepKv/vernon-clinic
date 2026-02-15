@@ -9,7 +9,7 @@ const galleryItems = [
   { category: 'Acne Scars', title: 'Subcision + MNRF', detail: '8-month result', gradient: 'from-purple-900/80' },
   { category: 'Hair Transplant', title: 'Repair case', detail: '14-month result', gradient: 'from-amber-900/80' },
   { category: 'Botox & Fillers', title: 'Natural refresh', detail: 'Immediate result', gradient: 'from-rose-900/80' },
-  { category: 'Vitiligo', title: 'Melanocyte transfer', detail: '6-month result', gradient: 'from-clinical-900/80' },
+  { category: 'Vitiligo', title: 'Melanocyte transfer', detail: '6-month result', gradient: 'from-earth-900/80' },
 ]
 
 export function HorizontalGallery() {
@@ -41,16 +41,16 @@ export function HorizontalGallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="relative flex-shrink-0 w-[300px] sm:w-[360px] aspect-[3/4] overflow-hidden rounded-2xl bg-vernon-200"
+            className="relative flex-shrink-0 w-[300px] sm:w-[360px] aspect-[3/4] overflow-hidden rounded-3xl bg-brand-200"
           >
             {/* Placeholder for actual before/after images */}
-            <div className="absolute inset-0 flex items-center justify-center bg-vernon-100">
+            <div className="absolute inset-0 flex items-center justify-center bg-brand-100">
               <div className="grid h-full w-full grid-cols-2">
-                <div className="flex items-center justify-center border-r border-vernon-200/50 bg-vernon-150">
-                  <span className="text-xs font-medium text-vernon-400 [writing-mode:vertical-lr]">BEFORE</span>
+                <div className="flex items-center justify-center border-r border-brand-200/50 bg-brand-100">
+                  <span className="text-xs font-medium text-brand-400 [writing-mode:vertical-lr]">BEFORE</span>
                 </div>
-                <div className="flex items-center justify-center bg-vernon-100">
-                  <span className="text-xs font-medium text-vernon-400 [writing-mode:vertical-lr]">AFTER</span>
+                <div className="flex items-center justify-center bg-brand-100">
+                  <span className="text-xs font-medium text-brand-400 [writing-mode:vertical-lr]">AFTER</span>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ export function HorizontalGallery() {
       </motion.div>
 
       <div className="section-max-width section-padding mt-6">
-        <a href="/gallery" className="btn-ghost text-clinical-600 hover:text-clinical-700">
+        <a href="/gallery" className="btn-ghost text-earth-600 hover:text-earth-700">
           View full gallery →
         </a>
       </div>

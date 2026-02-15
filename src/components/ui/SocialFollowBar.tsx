@@ -2,8 +2,8 @@ import { socialLinks } from '@/components/sections/SocialMedia'
 
 export function SocialFollowBar({ className = '' }: { className?: string }) {
   return (
-    <div className={`rounded-xl border border-vernon-100 bg-vernon-50/50 p-4 ${className}`}>
-      <p className="text-xs font-semibold uppercase tracking-wider text-vernon-400">
+    <div className={`rounded-xl border border-brand-100 bg-brand-50/50 p-4 ${className}`}>
+      <p className="text-xs font-semibold uppercase tracking-wider text-brand-400">
         Follow Dr. Reddy
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
@@ -44,7 +44,7 @@ export function SocialFollowBar({ className = '' }: { className?: string }) {
           href={socialLinks.practo}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-lg bg-clinical-600 px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-earth-600 px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90"
         >
           <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />

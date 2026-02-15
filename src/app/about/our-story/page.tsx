@@ -79,7 +79,7 @@ export default function OurStoryPage() {
           <ScrollReveal delay={0.1}>
             <h1 className="heading-1 mt-3 max-w-3xl">
               From UK training room to{' '}
-              <span className="italic text-vernon-600">Hyderabad&apos;s operating theatre</span>
+              <span className="italic text-brand-600">Hyderabad&apos;s operating theatre</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -92,11 +92,11 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      <section className="border-t border-vernon-100 py-16 lg:py-24">
+      <section className="border-t border-brand-100 py-16 lg:py-24">
         <div className="section-max-width section-padding">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-[2rem] top-0 hidden h-full w-px bg-vernon-200 sm:block lg:left-1/2" />
+            <div className="absolute left-[2rem] top-0 hidden h-full w-px bg-brand-200 sm:block lg:left-1/2" />
 
             <StaggerReveal className="space-y-12" staggerDelay={0.12} baseDelay={0.1}>
               {milestones.map((milestone, index) => (
@@ -107,13 +107,13 @@ export default function OurStoryPage() {
                     }`}
                   >
                     {/* Dot */}
-                    <div className="absolute left-[1.65rem] hidden h-3 w-3 rounded-full border-2 border-clinical-500 bg-white sm:block lg:left-1/2 lg:-translate-x-1/2" />
+                    <div className="absolute left-[1.65rem] hidden h-3 w-3 rounded-full border-2 border-earth-500 bg-white sm:block lg:left-1/2 lg:-translate-x-1/2" />
 
                     {/* Content */}
                     <div className={`flex-1 sm:pl-16 lg:pl-0 ${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'}`}>
-                      <span className="font-mono text-sm text-clinical-600">{milestone.year}</span>
-                      <h3 className="mt-1 text-xl font-medium text-vernon-900">{milestone.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-vernon-500">{milestone.description}</p>
+                      <span className="font-mono text-sm text-earth-600">{milestone.year}</span>
+                      <h3 className="mt-1 text-xl font-medium text-brand-900">{milestone.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-brand-500">{milestone.description}</p>
                     </div>
 
                     {/* Spacer for alternating layout */}

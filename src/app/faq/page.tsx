@@ -207,7 +207,7 @@ export default function FAQPage() {
                 <a
                   key={section.title}
                   href={`#${section.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="badge hover:bg-clinical-50 hover:text-clinical-700 transition-colors"
+                  className="badge hover:bg-earth-50 hover:text-earth-700 transition-colors"
                 >
                   {section.title}
                 </a>
@@ -222,7 +222,7 @@ export default function FAQPage() {
                 id={section.title.toLowerCase().replace(/\s+/g, '-')}
               >
                 <ScrollReveal>
-                  <h2 className="heading-3 border-b border-vernon-100 pb-4">
+                  <h2 className="heading-3 border-b border-brand-100 pb-4">
                     {section.title}
                   </h2>
                 </ScrollReveal>
@@ -230,15 +230,15 @@ export default function FAQPage() {
                   {section.faqs.map((faq, index) => (
                     <StaggerItem key={index}>
                       <details
-                        className="group rounded-xl border border-vernon-100 bg-white"
+                        className="group rounded-xl border border-brand-100 bg-white"
                       >
-                        <summary className="flex cursor-pointer items-center justify-between px-6 py-4 text-base font-medium text-vernon-900 hover:text-clinical-700">
+                        <summary className="flex cursor-pointer items-center justify-between px-6 py-4 text-base font-medium text-brand-900 hover:text-earth-700">
                           <span className="pr-4">{faq.question}</span>
-                          <svg className="h-5 w-5 flex-shrink-0 text-vernon-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <svg className="h-5 w-5 flex-shrink-0 text-brand-400 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                           </svg>
                         </summary>
-                        <div className="border-t border-vernon-50 px-6 py-4 text-sm leading-relaxed text-vernon-600">
+                        <div className="border-t border-brand-50 px-6 py-4 text-sm leading-relaxed text-brand-600">
                           {faq.answer}
                         </div>
                       </details>

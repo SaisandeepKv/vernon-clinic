@@ -58,20 +58,12 @@ export function StatsBar() {
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-vernon-950">
-      {/* Background gradient mesh */}
-      <div className="absolute inset-0 bg-gradient-to-r from-vernon-950 via-vernon-900 to-vernon-950" />
-      <div className="absolute left-1/4 top-0 h-px w-1/2 bg-gradient-to-r from-transparent via-clinical-500/20 to-transparent" />
+    <section ref={ref} className="relative overflow-hidden bg-brand-950">
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-900 to-brand-950" />
+      <div className="absolute left-1/4 top-0 h-px w-1/2 bg-gradient-to-r from-transparent via-earth-500/20 to-transparent" />
 
-      {/* Subtle animated glow */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="h-40 w-96 rounded-full bg-clinical-600/5 blur-3xl pulse-soft" />
-      </div>
-
-      {/* Noise overlay for texture */}
-      <div className="noise-overlay absolute inset-0 opacity-50" />
-
-      <div className="section-max-width section-padding relative">
+      <div className="container-main relative">
         <div className="grid grid-cols-2 gap-6 py-16 lg:grid-cols-4 lg:gap-0">
           {stats.map((stat, i) => (
             <motion.div
@@ -85,20 +77,20 @@ export function StatsBar() {
               }}
               className={`group text-center ${i < 3 ? 'lg:border-r lg:border-white/10' : ''}`}
             >
-              <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-clinical-500/10 text-clinical-400 transition-colors group-hover:bg-clinical-500/15">
+              <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-earth-500/10 text-earth-400 transition-colors group-hover:bg-earth-500/15">
                 {stat.icon}
               </div>
-              <p className="font-display text-4xl font-light tabular-nums text-white lg:text-5xl">
+              <p className="font-display text-4xl tabular-nums text-white lg:text-6xl">
                 <SpringCounter
                   value={stat.value}
                   suffix={stat.suffix}
                   decimals={stat.decimals || 0}
                 />
               </p>
-              <p className="mt-2 text-sm font-medium text-vernon-300">
+              <p className="mt-2 text-sm font-medium text-brand-300">
                 {stat.label}
               </p>
-              <p className="text-xs text-vernon-500">
+              <p className="text-xs text-brand-500">
                 {stat.sub}
               </p>
             </motion.div>
@@ -106,7 +98,7 @@ export function StatsBar() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-1/4 h-px w-1/2 bg-gradient-to-r from-transparent via-clinical-500/20 to-transparent" />
+      <div className="absolute bottom-0 left-1/4 h-px w-1/2 bg-gradient-to-r from-transparent via-earth-500/20 to-transparent" />
     </section>
   )
 }

@@ -52,19 +52,19 @@ export function BeforeAfterSlider({
       aria-valuenow={Math.round(sliderPosition)}
     >
       {/* After (full width background) */}
-      <div className="aspect-[4/3] w-full bg-gradient-to-br from-clinical-50 to-clinical-100">
+      <div className="aspect-[4/3] w-full bg-gradient-to-br from-earth-50 to-earth-100">
         <div className="flex h-full items-center justify-center">
-          <span className="text-sm font-medium text-clinical-600">{afterLabel}</span>
+          <span className="text-sm font-medium text-earth-600">{afterLabel}</span>
         </div>
       </div>
 
       {/* Before (clipped) */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-vernon-100 to-vernon-200"
+        className="absolute inset-0 bg-gradient-to-br from-brand-100 to-brand-200"
         style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
       >
         <div className="flex h-full items-center justify-center">
-          <span className="text-sm font-medium text-vernon-600">{beforeLabel}</span>
+          <span className="text-sm font-medium text-brand-600">{beforeLabel}</span>
         </div>
       </div>
 
@@ -75,17 +75,17 @@ export function BeforeAfterSlider({
       >
         {/* Handle */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-white p-1.5 shadow-lg transition-transform group-hover:scale-110">
-          <svg className="h-4 w-4 text-vernon-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <svg className="h-4 w-4 text-brand-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
           </svg>
         </div>
       </div>
 
       {/* Labels */}
-      <div className="absolute bottom-3 left-3 rounded-md bg-vernon-900/70 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
+      <div className="absolute bottom-3 left-3 rounded-md bg-brand-900/70 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
         {beforeLabel}
       </div>
-      <div className="absolute bottom-3 right-3 rounded-md bg-clinical-600/70 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
+      <div className="absolute bottom-3 right-3 rounded-md bg-earth-600/70 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
         {afterLabel}
       </div>
     </div>

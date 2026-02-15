@@ -29,7 +29,7 @@ export default function OurTeamPage() {
           <ScrollReveal delay={0.1}>
             <h1 className="heading-1 mt-3 max-w-3xl">
               Led by a surgeon.{' '}
-              <span className="italic text-vernon-600">Supported by specialists.</span>
+              <span className="italic text-brand-600">Supported by specialists.</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -42,27 +42,27 @@ export default function OurTeamPage() {
         </div>
       </section>
 
-      <section className="border-t border-vernon-100 py-16">
+      <section className="border-t border-brand-100 py-16">
         <div className="section-max-width section-padding">
           {/* Lead Doctor */}
           <ScrollReveal>
-            <div className="rounded-2xl border border-vernon-100 bg-white p-8 lg:p-12">
+            <div className="rounded-2xl border border-brand-100 bg-white p-8 lg:p-12">
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div className="lg:col-span-1">
-                  <div className="aspect-[3/4] overflow-hidden rounded-xl bg-vernon-100">
+                  <div className="aspect-[3/4] overflow-hidden rounded-xl bg-brand-100">
                     <Image src="/images/doctors/dr-brahmananda-reddy.jpg" alt="Dr. R. Brahmananda Reddy" width={300} height={400} className="h-full w-full object-cover" />
                   </div>
                 </div>
                 <div className="lg:col-span-2">
                   <span className="badge-clinical">Founder & Lead Physician</span>
-                  <h2 className="mt-3 font-display text-2xl text-vernon-900 sm:text-3xl">
+                  <h2 className="mt-3 font-display text-2xl text-brand-900 sm:text-3xl">
                     {primaryDoctor.name}
                   </h2>
-                  <p className="mt-1 text-sm text-clinical-700">{primaryDoctor.title}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-vernon-600">
+                  <p className="mt-1 text-sm text-earth-700">{primaryDoctor.title}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-brand-600">
                     {primaryDoctor.qualifications.join(' | ')}
                   </p>
-                  <p className="mt-4 text-base leading-relaxed text-vernon-600">
+                  <p className="mt-4 text-base leading-relaxed text-brand-600">
                     Dr. Reddy personally performs or supervises every significant procedure
                     at Vernon. From hair transplant surgeries to filler injections, the
                     founding physician maintains direct clinical involvement — a commitment
@@ -79,23 +79,23 @@ export default function OurTeamPage() {
 
           {/* Dr. Asritha Reddy */}
           <ScrollReveal delay={0.15} className="mt-12">
-            <div className="rounded-2xl border border-vernon-100 bg-white p-8 lg:p-12">
+            <div className="rounded-2xl border border-brand-100 bg-white p-8 lg:p-12">
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div className="lg:col-span-1">
-                  <div className="aspect-[3/4] overflow-hidden rounded-xl bg-vernon-100">
+                  <div className="aspect-[3/4] overflow-hidden rounded-xl bg-brand-100">
                     <Image src="/images/doctors/dr-asritha-reddy.jpg" alt="Dr. Asritha Reddy" width={300} height={400} className="h-full w-full object-cover" />
                   </div>
                 </div>
                 <div className="lg:col-span-2">
                   <span className="badge-clinical">Aesthetic Physician & Anaesthesiologist</span>
-                  <h2 className="mt-3 font-display text-2xl text-vernon-900 sm:text-3xl">
+                  <h2 className="mt-3 font-display text-2xl text-brand-900 sm:text-3xl">
                     {doctors[1].name}
                   </h2>
-                  <p className="mt-1 text-sm text-clinical-700">{doctors[1].title}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-vernon-600">
+                  <p className="mt-1 text-sm text-earth-700">{doctors[1].title}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-brand-600">
                     {doctors[1].qualifications.join(' | ')}
                   </p>
-                  <p className="mt-4 text-base leading-relaxed text-vernon-600">
+                  <p className="mt-4 text-base leading-relaxed text-brand-600">
                     Dr. Asritha brings a unique combination of anaesthesiology expertise
                     and aesthetic medicine certification. Her dual background ensures
                     patient comfort during procedures while delivering advanced aesthetic
@@ -147,8 +147,8 @@ export default function OurTeamPage() {
               ].map((member) => (
                 <StaggerItem key={member.role}>
                   <div className="card-flat">
-                    <h3 className="text-base font-medium text-vernon-900">{member.role}</h3>
-                    <p className="mt-2 text-sm text-vernon-500">{member.description}</p>
+                    <h3 className="text-base font-medium text-brand-900">{member.role}</h3>
+                    <p className="mt-2 text-sm text-brand-500">{member.description}</p>
                   </div>
                 </StaggerItem>
               ))}

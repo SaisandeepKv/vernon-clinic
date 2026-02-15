@@ -36,13 +36,13 @@ export function WhatsAppFloat() {
             initial={{ opacity: 0, x: 10, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 10, scale: 0.9 }}
-            className="absolute bottom-full right-0 mb-3 w-56 rounded-xl border border-vernon-100 bg-white p-3 shadow-xl"
+            className="absolute bottom-full right-0 mb-3 w-56 rounded-xl border border-brand-100 bg-white p-3 shadow-xl"
           >
-            <p className="text-sm font-medium text-vernon-900">Need help?</p>
-            <p className="mt-0.5 text-xs text-vernon-500">
+            <p className="text-sm font-medium text-brand-900">Need help?</p>
+            <p className="mt-0.5 text-xs text-brand-500">
               Chat with us on WhatsApp for quick appointment booking.
             </p>
-            <div className="absolute -bottom-2 right-4 h-4 w-4 rotate-45 border-b border-r border-vernon-100 bg-white" />
+            <div className="absolute -bottom-2 right-4 h-4 w-4 rotate-45 border-b border-r border-brand-100 bg-white" />
           </motion.div>
         )}
       </AnimatePresence>

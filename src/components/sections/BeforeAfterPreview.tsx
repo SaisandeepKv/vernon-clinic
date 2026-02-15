@@ -38,7 +38,7 @@ function CaseCard({ item, index }: { item: typeof cases[number]; index: number }
         delay: index * 0.15,
         ease: [0.25, 0.4, 0.25, 1],
       }}
-      className="group overflow-hidden rounded-2xl border border-vernon-100 bg-white transition-all duration-300 hover:shadow-xl hover:shadow-vernon-900/5 hover:-translate-y-1"
+      className="group overflow-hidden rounded-3xl border border-brand-100 bg-white transition-all duration-300 hover:shadow-xl hover:shadow-brand-900/5 hover:-translate-y-1"
     >
       {/* Interactive Before/After slider with iris reveal */}
       <ClipReveal direction="iris">
@@ -50,10 +50,10 @@ function CaseCard({ item, index }: { item: typeof cases[number]; index: number }
       </ClipReveal>
       <div className="p-5">
         <span className="badge-clinical text-2xs">{item.category}</span>
-        <h3 className="mt-2 text-base font-medium text-vernon-900 transition-colors group-hover:text-clinical-700">
+        <h3 className="mt-2 text-base font-medium text-brand-900 transition-colors group-hover:text-earth-700">
           {item.treatment}
         </h3>
-        <p className="mt-1 text-sm text-vernon-500">
+        <p className="mt-1 text-sm text-brand-500">
           {item.description}
         </p>
       </div>
@@ -103,7 +103,7 @@ export function BeforeAfterPreview() {
           >
             <Link
               href="/gallery"
-              className="btn-ghost hidden text-clinical-600 hover:text-clinical-700 sm:flex"
+              className="btn-ghost hidden text-earth-600 hover:text-earth-700 sm:flex"
             >
               View full gallery
               <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -120,7 +120,7 @@ export function BeforeAfterPreview() {
         </ScaleOnScroll>
 
         <div className="mt-8 text-center sm:hidden">
-          <Link href="/gallery" className="btn-ghost text-clinical-600">
+          <Link href="/gallery" className="btn-ghost text-earth-600">
             View full gallery &rarr;
           </Link>
         </div>

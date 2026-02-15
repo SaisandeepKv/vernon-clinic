@@ -102,7 +102,7 @@ function CategoryCard({
     >
       <Link
         href={`/treatments/${category.slug}`}
-        className="group relative block h-full overflow-hidden rounded-2xl"
+        className="group relative block h-full overflow-hidden rounded-3xl"
       >
         {/* Background image */}
         <div className={`relative overflow-hidden ${isLarge ? 'h-[280px] sm:h-[360px]' : 'h-[280px] sm:h-[320px]'}`}>
@@ -117,7 +117,7 @@ function CategoryCard({
               blurDataURL={blurDataURL()}
             />
           ) : (
-            <div className="h-full w-full bg-vernon-200" />
+            <div className="h-full w-full bg-brand-200" />
           )}
 
           {/* Gradient overlay */}

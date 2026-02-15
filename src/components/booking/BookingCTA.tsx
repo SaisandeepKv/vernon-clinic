@@ -71,13 +71,13 @@ export function BookingCTA({
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className={`rounded-xl border border-clinical-200 bg-clinical-50 p-8 text-center ${className}`}
+        className={`rounded-2xl border border-earth-200 bg-earth-50 p-8 text-center ${className}`}
       >
-        <svg className="mx-auto h-12 w-12 text-clinical-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <svg className="mx-auto h-12 w-12 text-earth-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <h3 className="mt-4 font-display text-xl text-vernon-900">Request Received</h3>
-        <p className="mt-2 text-sm text-vernon-600">
+        <h3 className="mt-4 font-display text-xl text-brand-900">Request Received</h3>
+        <p className="mt-2 text-sm text-brand-600">
           Our care coordinator will contact you within 30 minutes during working hours.
         </p>
       </motion.div>
@@ -86,9 +86,9 @@ export function BookingCTA({
 
   if (variant === 'floating') {
     return (
-      <div className={`sticky top-24 rounded-xl border border-vernon-100 bg-white p-6 shadow-lg ${className}`}>
-        <h3 className="font-display text-lg text-vernon-900">Book a Consultation</h3>
-        <p className="mt-1 text-sm text-vernon-500">
+      <div className={`sticky top-24 rounded-2xl border border-brand-100 bg-white p-6 shadow-lg ${className}`}>
+        <h3 className="font-display text-lg text-brand-900">Book a Consultation</h3>
+        <p className="mt-1 text-sm text-brand-500">
           Speak with Dr. Reddy&apos;s team
         </p>
         <form onSubmit={handleSubmit} className="mt-4 space-y-3">
@@ -100,7 +100,7 @@ export function BookingCTA({
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full rounded-lg border border-vernon-200 px-3 py-2.5 text-sm text-vernon-900 placeholder:text-vernon-400 focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500"
+            className="w-full rounded-lg border border-brand-200 px-3 py-2.5 text-sm text-brand-900 placeholder:text-brand-400 focus:border-earth-500 focus:outline-none focus:ring-1 focus:ring-earth-500"
           />
           <label className="sr-only" htmlFor="booking-phone-float">Phone number</label>
           <input
@@ -110,14 +110,14 @@ export function BookingCTA({
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full rounded-lg border border-vernon-200 px-3 py-2.5 text-sm text-vernon-900 placeholder:text-vernon-400 focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500"
+            className="w-full rounded-lg border border-brand-200 px-3 py-2.5 text-sm text-brand-900 placeholder:text-brand-400 focus:border-earth-500 focus:outline-none focus:ring-1 focus:ring-earth-500"
           />
           <label className="sr-only" htmlFor="booking-treatment-float">Treatment</label>
           <select
             id="booking-treatment-float"
             value={formData.treatment}
             onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
-            className="w-full rounded-lg border border-vernon-200 px-3 py-2.5 text-sm text-vernon-900 focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500"
+            className="w-full rounded-lg border border-brand-200 px-3 py-2.5 text-sm text-brand-900 focus:border-earth-500 focus:outline-none focus:ring-1 focus:ring-earth-500"
           >
             <option value="">Select treatment</option>
             {treatmentOptions.map((t) => (
@@ -128,24 +128,24 @@ export function BookingCTA({
             Check Availability
           </button>
         </form>
-        <p className="mt-3 text-center text-xs text-vernon-400">
-          Or call directly: <a href="tel:+919100017567" className="text-clinical-600 hover:underline">+91 91000 17567</a>
+        <p className="mt-3 text-center text-xs text-brand-400">
+          Or call directly: <a href="tel:+919100017567" className="text-earth-600 hover:underline">+91 91000 17567</a>
         </p>
         <div className="mt-2 space-y-1">
-          <p className="flex items-center gap-1.5 text-2xs text-vernon-400">
-            <svg className="h-3 w-3 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <p className="flex items-center gap-1.5 text-2xs text-brand-400">
+            <svg className="h-3 w-3 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             4.9 stars &middot; 3,400+ Google reviews
           </p>
-          <p className="flex items-center gap-1.5 text-2xs text-vernon-400">
-            <svg className="h-3 w-3 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <p className="flex items-center gap-1.5 text-2xs text-brand-400">
+            <svg className="h-3 w-3 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             No-obligation consultation
           </p>
-          <p className="flex items-center gap-1.5 text-2xs text-vernon-400">
-            <svg className="h-3 w-3 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <p className="flex items-center gap-1.5 text-2xs text-brand-400">
+            <svg className="h-3 w-3 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             Response within 30 minutes
@@ -156,11 +156,11 @@ export function BookingCTA({
   }
 
   return (
-    <div ref={sectionRef} className={`relative overflow-hidden rounded-xl bg-vernon-950 p-8 sm:p-12 ${className}`}>
+    <div ref={sectionRef} className={`relative overflow-hidden rounded-2xl bg-brand-950 p-8 sm:p-12 ${className}`}>
       {/* Subtle mesh gradient */}
       <div className="absolute inset-0">
-        <div className="mesh-blob-1 absolute -right-20 -top-20 h-[300px] w-[300px] rounded-full bg-gradient-to-bl from-clinical-600/10 to-transparent blur-3xl" />
-        <div className="mesh-blob-2 absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-gradient-to-tr from-vernon-600/10 to-transparent blur-3xl" />
+        <div className="mesh-blob-1 absolute -right-20 -top-20 h-[300px] w-[300px] rounded-full bg-gradient-to-bl from-earth-600/10 to-transparent blur-3xl" />
+        <div className="mesh-blob-2 absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-gradient-to-tr from-brand-600/10 to-transparent blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-2xl text-center">
@@ -168,7 +168,7 @@ export function BookingCTA({
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="label text-vernon-400"
+          className="label text-brand-400"
         >
           Schedule a Consultation
         </motion.span>
@@ -184,7 +184,7 @@ export function BookingCTA({
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-4 text-vernon-400"
+          className="mt-4 text-brand-400"
         >
           Every treatment at Vernon begins with a thorough evaluation by
           Dr. Brahmananda Reddy. No pressure, no upselling — just an honest
@@ -207,7 +207,7 @@ export function BookingCTA({
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full rounded-lg border border-vernon-700 bg-vernon-900 px-4 py-3 text-sm text-white placeholder:text-vernon-500 focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500 transition-colors"
+            className="w-full rounded-lg border border-brand-700 bg-brand-900 px-4 py-3 text-sm text-white placeholder:text-brand-500 focus:border-earth-500 focus:outline-none focus:ring-1 focus:ring-earth-500 transition-colors"
           />
         </div>
         <div>
@@ -219,7 +219,7 @@ export function BookingCTA({
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full rounded-lg border border-vernon-700 bg-vernon-900 px-4 py-3 text-sm text-white placeholder:text-vernon-500 focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500 transition-colors"
+            className="w-full rounded-lg border border-brand-700 bg-brand-900 px-4 py-3 text-sm text-white placeholder:text-brand-500 focus:border-earth-500 focus:outline-none focus:ring-1 focus:ring-earth-500 transition-colors"
           />
         </div>
         <div>
@@ -228,7 +228,7 @@ export function BookingCTA({
             id="booking-treatment"
             value={formData.treatment}
             onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
-            className="w-full rounded-lg border border-vernon-700 bg-vernon-900 px-4 py-3 text-sm text-white focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500 transition-colors"
+            className="w-full rounded-lg border border-brand-700 bg-brand-900 px-4 py-3 text-sm text-white focus:border-earth-500 focus:outline-none focus:ring-1 focus:ring-earth-500 transition-colors"
           >
             <option value="">Select treatment</option>
             {treatmentOptions.map((t) => (
@@ -242,7 +242,7 @@ export function BookingCTA({
             id="booking-location"
             value={formData.location}
             onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-            className="w-full rounded-lg border border-vernon-700 bg-vernon-900 px-4 py-3 text-sm text-white focus:border-clinical-500 focus:outline-none focus:ring-1 focus:ring-clinical-500 transition-colors"
+            className="w-full rounded-lg border border-brand-700 bg-brand-900 px-4 py-3 text-sm text-white focus:border-earth-500 focus:outline-none focus:ring-1 focus:ring-earth-500 transition-colors"
           >
             <option value="">Preferred location</option>
             {locations.map((l) => (
@@ -251,7 +251,7 @@ export function BookingCTA({
           </select>
         </div>
         <div className="sm:col-span-2">
-          <button type="submit" className="btn-primary w-full bg-clinical-600 hover:bg-clinical-700 active:scale-[0.98] transition-all">
+          <button type="submit" className="btn-primary w-full bg-earth-600 hover:bg-earth-700 active:scale-[0.98] transition-all">
             Book My Assessment
           </button>
         </div>

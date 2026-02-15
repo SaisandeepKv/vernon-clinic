@@ -18,13 +18,13 @@ export default function NotFound() {
           <Link href="/treatments" className="btn-secondary">
             Browse Treatments
           </Link>
-          <Link href="/contact" className="btn-ghost text-clinical-600">
+          <Link href="/contact" className="btn-ghost text-earth-600">
             Contact Us
           </Link>
         </div>
 
         <div className="mx-auto mt-16 max-w-md">
-          <p className="text-sm font-medium text-vernon-600">Popular pages:</p>
+          <p className="text-sm font-medium text-brand-600">Popular pages:</p>
           <div className="mt-4 flex flex-wrap justify-center gap-2">
             {[
               { label: 'Hair Transplant', href: '/treatments/hair-restoration/hair-transplant' },
@@ -37,7 +37,7 @@ export default function NotFound() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-vernon-200 px-3 py-1.5 text-sm text-vernon-600 transition-colors hover:border-clinical-300 hover:text-clinical-700"
+                className="rounded-full border border-brand-200 px-3 py-1.5 text-sm text-brand-600 transition-colors hover:border-earth-300 hover:text-earth-700"
               >
                 {link.label}
               </Link>

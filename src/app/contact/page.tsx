@@ -26,7 +26,7 @@ export default function ContactPage() {
               <ScrollReveal delay={0.1}>
                 <h1 className="heading-1 mt-3">
                   Begin with a{' '}
-                  <span className="italic text-vernon-600">conversation</span>
+                  <span className="italic text-brand-600">conversation</span>
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
@@ -42,17 +42,17 @@ export default function ContactPage() {
                 <StaggerItem>
                   <a
                     href="tel:+919100017567"
-                    className="flex items-center gap-4 rounded-xl border border-vernon-100 bg-white p-5 transition-colors hover:border-clinical-200"
+                    className="flex items-center gap-4 rounded-xl border border-brand-100 bg-white p-5 transition-colors hover:border-earth-200"
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-clinical-50">
-                      <svg className="h-6 w-6 text-clinical-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-earth-50">
+                      <svg className="h-6 w-6 text-earth-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-vernon-900">Call Us</p>
-                      <p className="text-lg text-clinical-600">+91 91000 17567</p>
-                      <p className="text-xs text-vernon-400">Mon–Sat, 10AM–7PM</p>
+                      <p className="text-sm font-medium text-brand-900">Call Us</p>
+                      <p className="text-lg text-earth-600">+91 91000 17567</p>
+                      <p className="text-xs text-brand-400">Mon–Sat, 10AM–7PM</p>
                     </div>
                   </a>
                 </StaggerItem>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                     href="https://wa.me/919885446622?text=Hi%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Vernon%20Skin%20Clinic"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 rounded-xl border border-vernon-100 bg-white p-5 transition-colors hover:border-green-200"
+                    className="flex items-center gap-4 rounded-xl border border-brand-100 bg-white p-5 transition-colors hover:border-green-200"
                   >
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50">
                       <svg className="h-6 w-6 text-green-600" viewBox="0 0 24 24" fill="currentColor">
@@ -70,9 +70,9 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-vernon-900">WhatsApp</p>
+                      <p className="text-sm font-medium text-brand-900">WhatsApp</p>
                       <p className="text-base text-green-600">Message us on WhatsApp</p>
-                      <p className="text-xs text-vernon-400">Instant response during working hours</p>
+                      <p className="text-xs text-brand-400">Instant response during working hours</p>
                     </div>
                   </a>
                 </StaggerItem>
@@ -80,17 +80,17 @@ export default function ContactPage() {
                 <StaggerItem>
                   <a
                     href="mailto:info@vernonskinclinic.com"
-                    className="flex items-center gap-4 rounded-xl border border-vernon-100 bg-white p-5 transition-colors hover:border-vernon-200"
+                    className="flex items-center gap-4 rounded-xl border border-brand-100 bg-white p-5 transition-colors hover:border-brand-200"
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-vernon-50">
-                      <svg className="h-6 w-6 text-vernon-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50">
+                      <svg className="h-6 w-6 text-brand-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-vernon-900">Email</p>
-                      <p className="text-base text-vernon-600">info@vernonskinclinic.com</p>
-                      <p className="text-xs text-vernon-400">We respond within 24 hours</p>
+                      <p className="text-sm font-medium text-brand-900">Email</p>
+                      <p className="text-base text-brand-600">info@vernonskinclinic.com</p>
+                      <p className="text-xs text-brand-400">We respond within 24 hours</p>
                     </div>
                   </a>
                 </StaggerItem>
@@ -103,15 +103,15 @@ export default function ContactPage() {
               <StaggerReveal className="mt-4 space-y-4" staggerDelay={0.1} baseDelay={0.35}>
                 {locations.map((location) => (
                   <StaggerItem key={location.id}>
-                    <div className="rounded-xl border border-vernon-100 p-5">
-                      <h3 className="text-base font-medium text-vernon-900">
+                    <div className="rounded-xl border border-brand-100 p-5">
+                      <h3 className="text-base font-medium text-brand-900">
                         Vernon — {location.name}
                       </h3>
-                      <p className="mt-1 text-sm text-vernon-500">{location.address}</p>
+                      <p className="mt-1 text-sm text-brand-500">{location.address}</p>
                       <div className="mt-3 flex flex-wrap gap-3">
                         {location.timings.map((t) => (
-                          <span key={t.days} className="text-xs text-vernon-500">
-                            {t.days}: <span className="font-medium text-vernon-700">{t.hours}</span>
+                          <span key={t.days} className="text-xs text-brand-500">
+                            {t.days}: <span className="font-medium text-brand-700">{t.hours}</span>
                           </span>
                         ))}
                       </div>
@@ -127,35 +127,35 @@ export default function ContactPage() {
                 <BookingCTA variant="floating" />
 
                 {/* FAQ teaser */}
-                <div className="mt-8 rounded-xl border border-vernon-100 bg-white p-6">
+                <div className="mt-8 rounded-xl border border-brand-100 bg-white p-6">
                   <h3 className="heading-4">Before your visit</h3>
-                  <div className="mt-4 space-y-3 text-sm text-vernon-600">
+                  <div className="mt-4 space-y-3 text-sm text-brand-600">
                     <div className="flex items-start gap-2">
-                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>No referral needed — book directly</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>Bring any previous prescriptions or test reports</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>List any medications you&apos;re currently taking</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>Avoid applying makeup on the day of skin consultation</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-clinical-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-earth-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>Consultations typically last 15–30 minutes</span>

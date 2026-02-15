@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-vernon-50 py-16 lg:py-24">
+      <section className="bg-brand-50 py-16 lg:py-24">
         <div className="section-max-width section-padding">
           <ScrollReveal>
             <span className="label">About Vernon</span>
@@ -21,7 +21,7 @@ export default function AboutPage() {
           <ScrollReveal delay={0.1}>
             <h1 className="heading-1 mt-3 max-w-3xl">
               Where surgical precision{' '}
-              <span className="italic text-vernon-600">meets dermatological science</span>
+              <span className="italic text-brand-600">meets dermatological science</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <ScrollReveal>
               <div>
                 <h2 className="heading-3">The Vernon Origin</h2>
-                <div className="mt-6 space-y-4 text-base leading-relaxed text-vernon-600">
+                <div className="mt-6 space-y-4 text-base leading-relaxed text-brand-600">
                   <p>
                     In 2011, Dr. R. Brahmananda Reddy returned to Hyderabad after
                     completing his MSc in Dermatology from the University of
@@ -98,9 +98,9 @@ export default function AboutPage() {
                   },
                 ].map((item) => (
                   <StaggerItem key={item.title}>
-                    <div className="rounded-xl border border-vernon-100 p-5">
-                      <h3 className="text-base font-medium text-vernon-900">{item.title}</h3>
-                      <p className="mt-2 text-sm text-vernon-500">{item.text}</p>
+                    <div className="rounded-xl border border-brand-100 p-5">
+                      <h3 className="text-base font-medium text-brand-900">{item.title}</h3>
+                      <p className="mt-2 text-sm text-brand-500">{item.text}</p>
                     </div>
                   </StaggerItem>
                 ))}
@@ -111,7 +111,7 @@ export default function AboutPage() {
       </section>
 
       {/* Doctor Preview */}
-      <section className="border-t border-vernon-100 bg-vernon-50 py-16 lg:py-24">
+      <section className="border-t border-brand-100 bg-brand-50 py-16 lg:py-24">
         <div className="section-max-width section-padding text-center">
           <ScrollReveal>
             <span className="label">The Founder</span>
