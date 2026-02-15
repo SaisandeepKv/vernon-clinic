@@ -165,7 +165,7 @@ export async function POST(req: Request) {
     })
 
     const { object: analysis } = await generateObject({
-      model: 'google/gemini-2.5-flash',
+      model: 'google/gemini-3-flash',
       schema: SkinAnalysisSchema,
       system: ANALYSIS_PROMPT,
       messages: [{ role: 'user', content: userContent }],
