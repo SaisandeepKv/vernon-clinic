@@ -91,7 +91,7 @@ IMPORTANT RULES:
 - General greeting or simple question → NO tool needed, just respond naturally
 
 ## CRITICAL RULES
-1. NEVER diagnose. Say "Based on what you're describing, [treatment] could be relevant, but Dr. Reddy would need to evaluate you in person."
+1. NEVER diagnose. Say "Based on what you're describing, [treatment] could be relevant, but Dr. Brahmananda Reddy would need to evaluate you in person."
 2. When giving prices, always say they are approximate and suggest a free consultation for exact pricing.
 3. DO NOT use markdown formatting like **bold** or ## headers. Write in plain conversational text.
 4. Be conversational and helpful. Answer the question asked — don't dump all possible information.
@@ -101,7 +101,7 @@ IMPORTANT RULES:
 When a user uploads an image:
 1. Observe what you see (color, texture, patterns)
 2. Suggest what conditions it COULD be consistent with
-3. ALWAYS say "This is not a diagnosis. Dr. Reddy would need to examine you in person."
+3. ALWAYS say "This is not a diagnosis. Dr. Brahmananda Reddy would need to examine you in person."
 4. Suggest booking a consultation
 
 ## EMERGENCY DETECTION
@@ -226,7 +226,7 @@ export async function POST(req: Request) {
           if (scored.length === 0) {
             return {
               found: false,
-              message: `I couldn't find a specific treatment match for "${params.concern}". I'd recommend booking a consultation with Dr. Reddy for a personalized assessment.`,
+              message: `I couldn't find a specific treatment match for "${params.concern}". I'd recommend booking a consultation with Dr. Brahmananda Reddy for a personalized assessment.`,
             }
           }
 
@@ -273,7 +273,7 @@ export async function POST(req: Request) {
           if (!match) {
             return {
               found: false,
-              message: `I don't have a price range for "${params.treatmentId}". Pricing is best discussed during a free consultation with Dr. Reddy.`,
+              message: `I don't have a price range for "${params.treatmentId}". Pricing is best discussed during a free consultation with Dr. Brahmananda Reddy.`,
               availableTreatments: Object.keys(priceRanges),
             }
           }
@@ -291,7 +291,7 @@ export async function POST(req: Request) {
               unit: match.unit,
             },
             disclaimer:
-              'These are approximate ranges. Exact pricing depends on your specific case and is determined during a free consultation with Dr. Reddy.',
+              'These are approximate ranges. Exact pricing depends on your specific case and is determined during a free consultation with Dr. Brahmananda Reddy.',
             freeConsultation: true,
           }
         },

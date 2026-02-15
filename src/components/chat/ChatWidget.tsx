@@ -96,7 +96,7 @@ const treatmentSuggestionMap: Record<string, { icon: string; label: string; mess
     { icon: 'skin', label: 'Scan Your Hair', message: '__SKIN_SCAN__' },
     { icon: 'cost', label: 'Cost Estimate', message: 'How much does a hair transplant cost at Vernon?' },
     { icon: 'hair', label: 'FUE vs DHI', message: 'What is the difference between FUE and DHI hair transplant?' },
-    { icon: 'book', label: 'Book with Dr. Reddy', message: '__BOOK__' },
+    { icon: 'book', label: 'Book with Dr. Brahmananda Reddy', message: '__BOOK__' },
   ],
   'pico': [
     { icon: 'skin', label: 'Scan Your Skin', message: '__SKIN_SCAN__' },
@@ -503,6 +503,68 @@ function ImagePreview({ src, onRemove }: { src: string; onRemove: () => void }) 
 }
 
 // ---------------------------------------------------------------------------
+// Scan Lead Form — collects name + phone before opening camera
+// ---------------------------------------------------------------------------
+
+function ScanLeadForm({ onSubmit, onClose }: { onSubmit: (name: string, phone: string) => void; onClose: () => void }) {
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+
+  const isValid = name.trim().length >= 2 && phone.replace(/\D/g, '').length >= 10
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 8 }}
+      className="mx-2 mb-3 overflow-hidden rounded-2xl border border-earth-200/80 bg-gradient-to-br from-earth-50 to-white shadow-sm"
+    >
+      <div className="flex items-center justify-between border-b border-earth-100 bg-earth-50/50 px-4 py-2.5">
+        <div className="flex items-center gap-2">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-900">
+            <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+            </svg>
+          </div>
+          <span className="text-[13px] font-semibold text-earth-800">Skin & Hair Analysis</span>
+        </div>
+        <button onClick={onClose} className="rounded-full p-1 text-earth-400 hover:bg-earth-100 hover:text-earth-600">
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div className="space-y-2.5 p-4">
+        <p className="text-[12px] text-earth-600">Enter your details to get a free AI-powered skin or hair analysis. Your report will be ready in seconds.</p>
+        <input
+          type="text"
+          placeholder="Your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full rounded-xl border border-earth-200 bg-white px-3 py-2 text-[13px] text-gray-900 placeholder:text-gray-400 focus:border-earth-400 focus:outline-none focus:ring-1 focus:ring-earth-300"
+        />
+        <input
+          type="tel"
+          placeholder="Phone number (10 digits)"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="w-full rounded-xl border border-earth-200 bg-white px-3 py-2 text-[13px] text-gray-900 placeholder:text-gray-400 focus:border-earth-400 focus:outline-none focus:ring-1 focus:ring-earth-300"
+        />
+        <button
+          onClick={() => isValid && onSubmit(name.trim(), phone.trim())}
+          disabled={!isValid}
+          className="w-full rounded-xl bg-brand-950 py-2.5 text-[13px] font-medium text-white transition-all hover:bg-brand-800 active:scale-[0.98] disabled:opacity-40 disabled:hover:bg-brand-950"
+        >
+          Take Photo & Analyze
+        </button>
+        <p className="text-center text-[10px] text-gray-400">Your privacy is protected. We only use your photo for analysis.</p>
+      </div>
+    </motion.div>
+  )
+}
+
+// ---------------------------------------------------------------------------
 // Callback Form — POSTs to /api/callback → saves to Notion
 // ---------------------------------------------------------------------------
 
@@ -849,7 +911,7 @@ function SkinAnalysisCard({
           onClick={onBookConsult}
           className="w-full rounded-xl bg-brand-950 py-2.5 text-[13px] font-medium text-white transition-all hover:bg-brand-800 active:scale-[0.98]"
         >
-          Book Appointment with Dr. Reddy
+          Book Appointment with Dr. Brahmananda Reddy
         </button>
       </div>
     </motion.div>
@@ -897,6 +959,8 @@ export function ChatWidget() {
   // Skin analysis state
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [skinAnalysis, setSkinAnalysis] = useState<AnalysisApiResponse | null>(null)
+  const [showScanLeadForm, setShowScanLeadForm] = useState(false)
+  const [scanLead, setScanLead] = useState<{ name: string; phone: string } | null>(null)
   const [callbackSuccess, setCallbackSuccess] = useState(false)
   const [bookingResult, setBookingResult] = useState<Record<string, string> | null>(null)
 
@@ -929,7 +993,7 @@ export function ChatWidget() {
 
   const welcomeMessages: UIMessage[] = useMemo(() => {
     const welcomeText = treatmentContext
-      ? `Hi! I see you're looking at ${treatmentContext}. I can answer your questions, analyze your skin/hair with AI, or book a free consultation with Dr. Reddy.`
+      ? `Hi! I see you're looking at ${treatmentContext}. I can answer your questions, analyze your skin/hair with AI, or book a free consultation with Dr. Brahmananda Reddy.`
       : "Hi! I'm Vernon, your AI skin & hair care assistant. Upload a photo for a free AI skin analysis, ask about treatments, or book a free consultation."
 
     return [{
@@ -1017,10 +1081,10 @@ export function ChatWidget() {
     sendMessage({ text })
   }, [sendMessage])
 
-  // Handle skin scan photo selection
+  // Handle skin scan photo selection — requires scanLead (name+phone) to be set first
   const handleScanSelect = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-    if (!file) return
+    if (!file || !scanLead) return
 
     let dataUrl: string
     try {
@@ -1036,7 +1100,7 @@ export function ChatWidget() {
 
     if (scanInputRef.current) scanInputRef.current.value = ''
 
-    // Start skin analysis
+    // Start skin analysis with lead data
     setIsAnalyzing(true)
     setSkinAnalysis(null)
 
@@ -1047,6 +1111,8 @@ export function ChatWidget() {
         body: JSON.stringify({
           image: dataUrl,
           mediaType: file.type || 'image/jpeg',
+          name: scanLead.name,
+          phone: scanLead.phone,
         }),
       })
       const data: AnalysisApiResponse = await res.json()
@@ -1056,7 +1122,7 @@ export function ChatWidget() {
     } finally {
       setIsAnalyzing(false)
     }
-  }, [])
+  }, [scanLead])
 
   const handleImageSelect = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -1130,10 +1196,18 @@ export function ChatWidget() {
     setBookingResult(details)
   }, [])
 
+  // Handle scan lead form submission — user provided name+phone, now open camera
+  const handleScanLeadSubmit = useCallback((name: string, phone: string) => {
+    setScanLead({ name, phone })
+    setShowScanLeadForm(false)
+    // Small delay to let the form close, then open camera
+    setTimeout(() => scanInputRef.current?.click(), 100)
+  }, [])
+
   // Handle suggestion click — intercept special actions
   const handleSuggestionClick = useCallback((message: string) => {
     if (message === '__SKIN_SCAN__') {
-      scanInputRef.current?.click()
+      setShowScanLeadForm(true) // Show lead form first, camera opens after
     } else if (message === '__BOOK__') {
       setShowBookingForm(true)
     } else {
@@ -1221,7 +1295,7 @@ export function ChatWidget() {
     ? 'fixed z-[60] flex flex-col overflow-hidden rounded-[28px] border border-gray-200/50 bg-white shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] backdrop-blur-sm max-sm:inset-x-2 max-sm:bottom-2 max-sm:top-14 sm:bottom-4 sm:right-4 sm:h-[85vh] sm:w-[560px]'
     : 'fixed z-[60] flex flex-col overflow-hidden rounded-[28px] border border-gray-200/50 bg-white shadow-[0_25px_60px_-12px_rgba(0,0,0,0.25)] backdrop-blur-sm max-sm:inset-x-2 max-sm:bottom-2 max-sm:top-14 sm:bottom-6 sm:right-6 sm:h-[660px] sm:w-[420px]'
 
-  const showFormOverlay = showCallbackForm || showBookingForm
+  const showFormOverlay = showCallbackForm || showBookingForm || showScanLeadForm
 
   return (
     <>
@@ -1478,7 +1552,7 @@ export function ChatWidget() {
                         <div className="rounded-2xl rounded-tl-md bg-white px-4 py-3 text-[14px] leading-relaxed text-gray-700 shadow-sm ring-1 ring-gray-100/80">
                           <p>{skinAnalysis.error || 'Could not analyze the image. Please try again with a clearer photo.'}</p>
                           <button
-                            onClick={() => { setSkinAnalysis(null); scanInputRef.current?.click() }}
+                            onClick={() => { setSkinAnalysis(null); setShowScanLeadForm(true) }}
                             className="mt-2 rounded-full border border-earth-200 bg-earth-50 px-3 py-1 text-[12px] font-medium text-earth-700 transition-all hover:bg-earth-100"
                           >
                             Try Again
@@ -1555,6 +1629,16 @@ export function ChatWidget() {
               )}
             </AnimatePresence>
 
+            {/* ---- Scan Lead Form (inline overlay) ---- */}
+            <AnimatePresence>
+              {showScanLeadForm && (
+                <ScanLeadForm
+                  onSubmit={handleScanLeadSubmit}
+                  onClose={() => setShowScanLeadForm(false)}
+                />
+              )}
+            </AnimatePresence>
+
             {/* ---- Quick Actions Bar ---- */}
             {!isWelcomeScreen && !showFormOverlay && (
               <div className="flex items-center justify-around border-t border-gray-100 bg-gray-50/50 px-2 py-1.5">
@@ -1587,7 +1671,7 @@ export function ChatWidget() {
                   <span className="text-[10px] font-medium">Callback</span>
                 </button>
                 <button
-                  onClick={() => scanInputRef.current?.click()}
+                  onClick={() => setShowScanLeadForm(true)}
                   className="flex flex-col items-center gap-0.5 rounded-lg px-3 py-1.5 text-gray-500 transition-colors hover:bg-earth-50 hover:text-earth-700"
                 >
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">

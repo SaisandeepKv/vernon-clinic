@@ -1,6 +1,7 @@
 import { generateObject } from 'ai'
 import { z } from 'zod'
 import { NextResponse } from 'next/server'
+import { checkScanExistsToday, postSkinAnalysisToNotion } from '@/lib/notion'
 
 export const maxDuration = 30
 
@@ -61,7 +62,7 @@ const SkinAnalysisSchema = z.object({
     .describe('Hair-specific analysis. Only for hair/scalp photos.'),
   personalizedMessage: z
     .string()
-    .describe('A warm 2-3 sentence message: acknowledge what you see, mention what can be improved, and encourage them to meet the doctor for a proper assessment. Do NOT name specific treatments or packages. Example: "Your skin has good elasticity, which is a great sign! The pigmentation on your cheeks is something Dr. Reddy can assess in person and suggest the right approach for. A consultation would give you a clear roadmap."'),
+    .describe('A warm 2-3 sentence message: acknowledge what you see, mention what can be improved, and encourage them to meet Dr. Brahmananda Reddy for a proper assessment. Do NOT name specific treatments or packages. Example: "Your skin has good elasticity, which is a great sign! The pigmentation on your cheeks is something Dr. Brahmananda Reddy can assess in person and suggest the right approach for. A consultation would give you a clear roadmap."'),
 })
 
 // ---------------------------------------------------------------------------
@@ -100,9 +101,10 @@ HAIR LOSS STAGING:
 PERSONALIZED MESSAGE:
 - Acknowledge their concerns warmly
 - DO NOT suggest specific treatments, packages, or procedures by name
-- Instead, encourage them to meet Dr. Reddy for a proper in-person assessment
+- Instead, encourage them to meet Dr. Brahmananda Reddy for a proper in-person assessment
+- Always refer to the doctor as "Dr. Brahmananda Reddy", never just "Dr. Reddy"
 - Tone: caring doctor, not salesy
-- Example: "The concerns we've identified are very common and highly treatable. A consultation with Dr. Reddy would give you a personalized treatment roadmap tailored to your skin."
+- Example: "The concerns we've identified are very common and highly treatable. A consultation with Dr. Brahmananda Reddy would give you a personalized treatment roadmap tailored to your skin."
 
 Return ONLY the structured JSON.`
 
@@ -113,13 +115,38 @@ Return ONLY the structured JSON.`
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    const { image, mediaType, userMessage } = body
+    const { image, mediaType, userMessage, name, phone } = body
+
+    // Require name and phone for lead capture
+    if (!name || name.trim().length < 2) {
+      return NextResponse.json(
+        { success: false, error: 'Please provide your name to get your analysis.' },
+        { status: 400 }
+      )
+    }
+
+    if (!phone || phone.replace(/\D/g, '').length < 10) {
+      return NextResponse.json(
+        { success: false, error: 'Please provide a valid phone number.' },
+        { status: 400 }
+      )
+    }
 
     if (!image) {
       return NextResponse.json(
         { success: false, error: 'No image provided' },
         { status: 400 }
       )
+    }
+
+    // Check if this phone already has a scan today
+    const existingCheck = await checkScanExistsToday(phone.trim())
+    if (existingCheck.exists) {
+      return NextResponse.json({
+        success: false,
+        error: 'You have already completed a skin analysis today. Please book a consultation with Dr. Brahmananda Reddy for a detailed in-person assessment.',
+        alreadyScanned: true,
+      })
     }
 
     const userContent: Array<{ type: 'text'; text: string } | { type: 'image'; image: string; mimeType?: string }> = []
@@ -152,6 +179,19 @@ export async function POST(req: Request) {
       })
     }
 
+    // Save analysis to Notion (non-blocking — don't fail the response if Notion errors)
+    const concernNames = analysis.concerns.map((c) => `${c.name} (${c.severity})`).join(', ')
+    postSkinAnalysisToNotion({
+      name: name.trim(),
+      phone: phone.trim(),
+      score: analysis.overallScore,
+      skinAge: analysis.estimatedSkinAge,
+      imageType: analysis.imageType,
+      summary: analysis.summary,
+      concerns: concernNames || 'None detected',
+      hairStage: analysis.hairAnalysis?.stage,
+    }).catch((err) => console.error('Non-blocking Notion save failed:', err))
+
     return NextResponse.json({
       success: true,
       analysis: {
@@ -166,7 +206,7 @@ export async function POST(req: Request) {
         personalizedMessage: analysis.personalizedMessage,
       },
       disclaimer:
-        'This is an AI-powered screening tool, not a medical diagnosis. For accurate assessment, please consult Dr. Reddy at Vernon Skin & Hair Clinic.',
+        'This is an AI-powered screening tool, not a medical diagnosis. For accurate assessment, please consult Dr. Brahmananda Reddy at Vernon Skin & Hair Clinic.',
     })
   } catch (error) {
     console.error('Skin analysis error:', error)
