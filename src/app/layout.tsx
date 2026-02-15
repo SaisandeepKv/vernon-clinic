@@ -9,6 +9,7 @@ import { ExitIntentPopup } from '@/components/ui/ExitIntentPopup'
 import { CallbackWidget } from '@/components/ui/CallbackWidget'
 import { TreatmentFinderQuiz } from '@/components/ui/TreatmentFinderQuiz'
 import { StickyMobileCTA } from '@/components/ui/StickyMobileCTA'
+import { ChatWidget } from '@/components/chat/ChatWidget'
 import { SchemaOrg } from '@/components/schema/SchemaOrg'
 import { ScrollProgressBar } from '@/components/ui/ScrollProgressBar'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
@@ -131,6 +132,7 @@ export default function RootLayout({
           <CallbackWidget />
           <TreatmentFinderQuiz />
           <StickyMobileCTA />
+          <ChatWidget />
         </PostHogProvider>
       </body>
     </html>
